@@ -351,7 +351,7 @@
     <div class="cover-badge amtrak">AMTRAK PASSENGER</div>
     <div class="cover-badge nscale">JMRI / DCC CONTROL</div>
   </div>
-  <div class="cover-rev">Version 0.1 — February 2026</div>
+  <div class="cover-rev">Version 0.2 — February 2026</div>
 </div>
 
 <!-- ==================== VERSION HISTORY ==================== -->
@@ -362,7 +362,16 @@
   </div>
   <div class="subtitle">Document revision log — what changed and when</div>
 
-  <div style="margin-top:24px">
+  <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+    <div class="train-card freight" style="padding:16px 20px">
+      <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px">
+        <div style="font-size:14px;font-weight:700;color:#4895ef;font-family:'JetBrains Mono',monospace;flex-shrink:0">v0.2</div>
+        <div style="font-size:11px;color:#5a6a8a;font-family:'JetBrains Mono',monospace">February 9, 2026</div>
+      </div>
+      <div style="font-size:11px;color:#8899bb;font-family:'JetBrains Mono',monospace;line-height:1.7">
+        <strong style="color:#f0f0f0">Document roadmap & hosting.</strong> Added WIP roadmap page listing planned additions (DCC address map, wiring schematics, bill of materials, module interconnect standards, signal plan, car cards/waybills, prototype photo references, JMRI configuration, and benchwork dimensions). Prepared document for GitHub Pages hosting with SEO meta tags, Open Graph tags, favicon, and site footer. Added CNAME file, README, and CC0 license for repository.
+      </div>
+    </div>
     <div class="train-card freight" style="padding:16px 20px">
       <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px">
         <div style="font-size:14px;font-weight:700;color:#4895ef;font-family:'JetBrains Mono',monospace;flex-shrink:0">v0.1</div>
@@ -372,6 +381,251 @@
         <strong style="color:#f0f0f0">Initial version.</strong> Complete layout design document including prototype history, track schematic with 12 modules, detailed track plans for all locations (Northtown, Cambridge, Hinckley, Moose Lake, Carlton, Cloquet, Proctor, Rices Point, Ore Docks, Iron Range Staging, and double reverse loops at both ends). Rolling stock and commodities reference, six-operator session guide with continuous running via BNSF circuit, module build plan with per-module construction sequence, and locomotive/freight car purchasing roster. ~90 turnouts, ~105-130 pieces of rolling stock recommended.
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ==================== WIP ROADMAP ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>DOCUMENT ROADMAP</h1>
+    <div class="page-badge">WORK IN PROGRESS</div>
+  </div>
+  <div class="subtitle">Planned additions to this document — checked items are complete, unchecked items are in progress or planned</div>
+
+  <!-- COMPLETE -->
+  <div style="margin-top:24px">
+    <h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#2a9d8f;margin-bottom:14px">✅ Complete</h3>
+    <div style="display:flex;flex-direction:column;gap:8px">
+
+      <div class="train-card local" style="padding:12px 18px;opacity:0.6">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#a0b0c0">Prototype History & Background</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Railroad history, timeline, corporate lineage from GN/DM&IR to BNSF/CN</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card local" style="padding:12px 18px;opacity:0.6">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#a0b0c0">Track Schematic & Module Plans</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Full layout schematic, detailed SVG track plans for all 12 modules, turnout counts, double-track sections, reverse loops</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card local" style="padding:12px 18px;opacity:0.6">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#a0b0c0">Rolling Stock & Commodities Reference</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Car types by location, traffic flow, commodity assignments</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card local" style="padding:12px 18px;opacity:0.6">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#a0b0c0">Operations Guide</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Six operator jobs, continuous running circuit, session flow, train cards with consists</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card local" style="padding:12px 18px;opacity:0.6">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#a0b0c0">Module Build Plan</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Construction sequence simple → complex, per-module steps (benchwork → track → wire → test), post-trackwork phases</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card local" style="padding:12px 18px;opacity:0.6">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#a0b0c0">Locomotive & Rolling Stock Roster</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Recommended N scale models by manufacturer, fleet sizes, purchasing priorities</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PLANNED — ELECTRICAL & CONTROL -->
+  <div style="margin-top:32px">
+    <h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#f4a261;margin-bottom:14px">🔧 Planned — Electrical & Control Systems</h3>
+    <div style="display:flex;flex-direction:column;gap:8px">
+
+      <div class="train-card unit" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">DCC Address Map</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Complete address allocation for ~90 turnouts (DS64 decoders), SE74 signal decoders, and BXP88 block detectors. Organized by module with address ranges, decoder locations, and LocoNet topology.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card unit" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Module Wiring Schematics</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Per-module wiring diagrams showing DCC bus routing, feeder drop locations, decoder placement, Cobalt iP motor connections (throw rod, frog polarity, position feedback), and LocoNet daisy-chain path.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card unit" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Signal Plan</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Signal head locations, aspect definitions, SE74 output assignments, and JMRI signal mast logic. Includes dwarf signals at yard throats, mainline signals at siding entries, and approach signals for passing sidings.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card unit" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Block Detection Map</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">BXP88 zone boundaries across all modules. Block names, detection zone lengths, transponding zones for JMRI, and gap locations for block isolation. Includes reverse loop detection for automated sequencing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card unit" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">JMRI Configuration Guide</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Panel setup, turnout table, signal mast logic rules, routes, Logix automation for reverse loop sequencing, dispatcher panel layout, and CTC-style control for the single-track mainline.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PLANNED — CONSTRUCTION -->
+  <div style="margin-top:32px">
+    <h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#4895ef;margin-bottom:14px">🔧 Planned — Construction Reference</h3>
+    <div style="display:flex;flex-direction:column;gap:8px">
+
+      <div class="train-card freight" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Bill of Materials</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Complete parts list with quantities and rough pricing: Cobalt iP motors (~90), DS64 decoders (~23), BXP88 detectors, SE74 signal decoders, AR1 auto-reversers (4), signal heads, LocoNet cables, DCC bus wire, cork roadbed, flex track, turnouts, and benchwork lumber. Organized by module for phased purchasing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Module Interconnect Standards</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Physical connection spec: bolt pattern, track alignment method (rail joiners vs. alignment pins), DCC bus jumper connectors, LocoNet passthrough, module height standard, and end-plate design. Defined before Module 1 to prevent compatibility problems.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Benchwork Dimensions & Cut Lists</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Exact module dimensions per module (length × width × height), lumber cut lists, foam/plywood requirements, leg heights, and garage floor plan showing module placement. Includes clearances for aisles and operator movement.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Garage Floor Plan</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Top-down layout showing how all 12 modules arrange in the physical space. Module placement, aisle widths, access hatches for hidden staging, electrical panel location, and benchwork support structure.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PLANNED — OPERATIONS -->
+  <div style="margin-top:32px">
+    <h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#e63946;margin-bottom:14px">🔧 Planned — Operations & Detail</h3>
+    <div style="display:flex;flex-direction:column;gap:8px">
+
+      <div class="train-card passenger" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Car Cards & Waybill System</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Car card templates, waybill routing for each industry, 4-cycle waybill design (load/empty/return/reload), and integration with JMRI Operations module for automated car routing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Dispatcher Timetable & Train Orders</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Employee timetable for the Hinckley Subdivision showing train schedules, meets, speed restrictions, and special instructions. Realistic documentation for operating sessions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Prototype Photo Reference</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Curated reference photos for each module location — track arrangements, structures, scenery character, signal placement, and rolling stock. Links to prototype sources (railpictures.net, Google Earth, historical archives).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Structure & Industry Reference</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Kit-bash plans, 3D print candidates, and commercial kit recommendations for each structure: depots, grain elevators, Sappi mill, ore docks, Proctor roundhouse, propane dealers, fuel depots, and scenic buildings.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:12px 18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f0f0f0">Scenery Guide</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Northern Minnesota landscape character by module: birch/aspen forests, pine stands, marshes, farm clearings, Proctor Hill terrain, Lake Superior waterfront, and Duluth Harbor scenic treatment. Material lists and techniques.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tp-notes" style="margin-top:24px">
+    <strong>This document is a living design reference.</strong> Items will be checked off and moved to the Complete section as they are added. The order above is roughly prioritized — electrical and construction reference items are most critical for the build phase, while operations and detail items can wait until trackwork is complete. Suggestions and feedback welcome.
   </div>
 </div>
 
@@ -454,7 +708,7 @@
     <h1>BNSF HINCKLEY SUB / DM&IR LAYOUT SCHEMATIC</h1>
     <div class="page-badge">PAGE 1 — TRACK SCHEMATIC</div>
   </div>
-  <div class="subtitle">Prototype-based N Scale Modular Layout — v0.1</div>
+  <div class="subtitle">Prototype-based N Scale Modular Layout — v0.2</div>
   <div class="legend-row">
     <div class="legend-item"><div class="legend-dot division"></div> Division Point</div>
     <div class="legend-item"><div class="legend-dot junction"></div> Junction Yard</div>
@@ -1982,7 +2236,7 @@
 <!-- ==================== FOOTER ==================== -->
 <footer style="max-width:1400px;width:100%;text-align:center;padding:20px 0 40px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#3a4a6c;line-height:1.8">
   <div style="margin-bottom:8px;color:#5a6b8b">hinckleysub.com — BNSF Hinckley Subdivision & DM&IR Ore Operations</div>
-  <div>Prototype-based N Scale Layout Design — Version 0.1</div>
+  <div>Prototype-based N Scale Layout Design — Version 0.2</div>
   <div style="margin-top:8px">BNSF®, DM&IR®, and all railroad marks are property of their respective owners. This is an independent model railroad project.</div>
 </footer>
 
