@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNSF Hinckley Sub & DM&IR — N Scale Layout Design</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="Prototype-based N scale modular layout design for the BNSF Hinckley Subdivision and DM&IR ore operations. Minneapolis to Duluth, Minnesota's Arrowhead Region. Track plans, operations guide, build plan, and rolling stock roster.">
+<meta name="keywords" content="BNSF, Hinckley Subdivision, DM&IR, Duluth Missabe Iron Range, N scale, model railroad, layout design, track plan, Northtown, Proctor, Rices Point, ore docks, Duluth, Minneapolis, JMRI, DCC, Digitrax, modular layout">
+<meta name="author" content="hinckleysub.com">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hinckleysub.com/">
+
+<!-- Open Graph (Facebook, LinkedIn, Discord, iMessage, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hinckleysub.com/">
+<meta property="og:title" content="BNSF Hinckley Sub & DM&IR — N Scale Layout Design">
+<meta property="og:description" content="Prototype-based N scale modular layout: BNSF Hinckley Subdivision and DM&IR ore operations. Minneapolis to Duluth — 12 modules, ~90 turnouts, 6 operator jobs, continuous running. Track plans, operations guide, build plan, and rolling stock roster.">
+<meta property="og:site_name" content="Hinckley Sub">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BNSF Hinckley Sub & DM&IR — N Scale Layout Design">
+<meta name="twitter:description" content="Prototype-based N scale modular layout: BNSF to DM&IR, Minneapolis to Duluth. 12 modules, ~90 turnouts, 6 operator jobs, continuous running.">
+
+<!-- Favicon (inline SVG — railroad-themed) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231a1a2e'/><text x='50' y='68' font-size='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%234895ef'>HS</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231a1a2e'/><text x='50' y='68' font-size='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%234895ef'>HS</text></svg>">
+
+<!-- Theme Color (browser UI tint on mobile) -->
+<meta name="theme-color" content="#1a1a2e">
+<meta name="msapplication-TileColor" content="#1a1a2e">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: 'DM Sans', sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; gap: 30px; }
+  .container { background: #16213e; border: 1px solid #2a3a5c; border-radius: 16px; padding: 40px 50px; max-width: 1400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  h1 { font-size: 22px; font-weight: 700; color: #f0f0f0; margin-bottom: 4px; letter-spacing: 1px; }
+  .subtitle { font-size: 13px; color: #7a8bb5; margin-bottom: 30px; font-family: 'JetBrains Mono', monospace; }
+  .page-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; flex-wrap: wrap; }
+  .page-badge { font-size: 10px; font-family: 'JetBrains Mono', monospace; background: #2a3a5c; color: #7a8bb5; padding: 3px 10px; border-radius: 4px; letter-spacing: 1px; }
+  .legend-row { display: flex; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: #a0b0d0; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid; flex-shrink: 0; }
+  .legend-dot.division { background: #e63946; border-color: #e63946; }
+  .legend-dot.junction { background: #f4a261; border-color: #f4a261; }
+  .legend-dot.town { background: #4895ef; border-color: #4895ef; }
+  .legend-dot.branch { background: #2a9d8f; border-color: #2a9d8f; }
+  .legend-dot.staging { background: none; border-color: #888; border-style: dashed; }
+  .legend-dot.terminal { background: #c77dff; border-color: #c77dff; }
+  .legend-line { width: 24px; height: 3px; flex-shrink: 0; border-radius: 2px; }
+  .legend-line.bnsf { background: #4895ef; }
+  .legend-line.dmir { background: #e9c46a; }
+  .legend-line.branch { background: #2a9d8f; }
+  svg { width: 100%; height: auto; display: block; }
+  .operations { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .ops-col h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .ops-col.bnsf h3 { color: #4895ef; } .ops-col.dmir h3 { color: #e9c46a; } .ops-col.branch h3 { color: #2a9d8f; }
+  .ops-col ul { list-style: none; padding: 0; }
+  .ops-col li { font-size: 11.5px; color: #8899bb; padding: 3px 0; font-family: 'JetBrains Mono', monospace; }
+  .ops-col li::before { content: '›'; margin-right: 8px; font-weight: bold; }
+  .ops-col.bnsf li::before { color: #4895ef; } .ops-col.dmir li::before { color: #e9c46a; } .ops-col.branch li::before { color: #2a9d8f; }
+  .modules { margin-top: 24px; padding-top: 20px; border-top: 1px solid #2a3a5c; }
+  .modules h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7a8bb5; margin-bottom: 10px; }
+  .modeling-notes { margin-top: 24px; padding: 16px 20px; background: rgba(244,162,97,0.08); border: 1px solid rgba(244,162,97,0.25); border-radius: 8px; }
+  .modeling-notes h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #f4a261; margin-bottom: 10px; }
+  .modeling-notes ol { margin: 0; padding-left: 20px; }
+  .modeling-notes li { font-size: 12px; color: #a0b0cc; line-height: 1.6; margin-bottom: 8px; }
+  .modeling-notes li strong { color: #d0d8e8; }
+  .modeling-notes .mn-summary { font-size: 11.5px; color: #7a8bb5; font-style: italic; margin-top: 10px; }
+  .module-list { display: flex; gap: 10px; flex-wrap: wrap; }
+  .module-tag { font-size: 11px; font-family: 'JetBrains Mono', monospace; padding: 4px 12px; border-radius: 6px; background: #1a1a2e; border: 1px solid #2a3a5c; color: #8899bb; }
+  .module-tag span { color: #f4a261; margin-right: 4px; }
+
+  /* Track plan styles */
+  .track-plan { background: #1a1a2e; border: 1px solid #2a3a5c; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .track-plan:last-child { margin-bottom: 0; }
+  .tp-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .tp-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .tp-dot.division { background: #e63946; } .tp-dot.junction { background: #f4a261; }
+  .tp-dot.town { background: #4895ef; } .tp-dot.branch { background: #2a9d8f; }
+  .tp-dot.terminal { background: #c77dff; } .tp-dot.staging { background: #888; }
+  .tp-name { font-size: 16px; font-weight: 700; color: #f0f0f0; }
+  .tp-type { font-size: 10px; font-family: 'JetBrains Mono', monospace; padding: 2px 8px; border-radius: 3px; margin-left: auto; }
+  .tp-type.division { color: #e63946; background: rgba(230,57,70,0.15); }
+  .tp-type.junction { color: #f4a261; background: rgba(244,162,97,0.15); }
+  .tp-type.town { color: #4895ef; background: rgba(72,149,239,0.15); }
+  .tp-type.branch { color: #2a9d8f; background: rgba(42,157,143,0.15); }
+  .tp-type.terminal { color: #c77dff; background: rgba(199,125,255,0.15); }
+  .tp-type.staging { color: #888; background: rgba(136,136,136,0.15); }
+  .tp-subtitle { font-size: 11px; color: #5a6a8a; font-family: 'JetBrains Mono', monospace; margin-bottom: 16px; padding-left: 24px; }
+  .tp-notes { font-size: 11px; color: #6a7a9a; font-family: 'JetBrains Mono', monospace; line-height: 1.6; margin-top: 14px; padding: 12px 16px; background: #16213e; border: 1px solid #2a3a5c; border-radius: 8px; }
+  .tp-notes strong { color: #8899bb; }
+  .tp-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 14px; }
+  .track-legend { margin-top: 24px; padding-top: 20px; border-top: 1px solid #2a3a5c; }
+  .track-legend h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7a8bb5; margin-bottom: 12px; }
+  .track-legend-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+  .tl-item { display: flex; align-items: center; gap: 8px; font-size: 10.5px; font-family: 'JetBrains Mono', monospace; color: #6a7a9a; }
+  .tl-line { width: 30px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+
+  /* Pages 2 & 3 styles (from original) */
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+  .location-card { background: #1a1a2e; border: 1px solid #2a3a5c; border-radius: 12px; padding: 20px 24px; position: relative; overflow: hidden; }
+  .location-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+  .location-card.division::before { background: #e63946; } .location-card.junction::before { background: #f4a261; }
+  .location-card.town::before { background: #4895ef; } .location-card.branch::before { background: #2a9d8f; }
+  .location-card.terminal::before { background: #c77dff; } .location-card.staging::before { background: #888; }
+  .location-card .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .card-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .division .card-dot { background: #e63946; } .junction .card-dot { background: #f4a261; }
+  .town .card-dot { background: #4895ef; } .branch .card-dot { background: #2a9d8f; }
+  .terminal .card-dot { background: #c77dff; } .staging .card-dot { background: #888; }
+  .card-title { font-size: 14px; font-weight: 700; color: #f0f0f0; }
+  .card-type { font-size: 10px; font-family: 'JetBrains Mono', monospace; padding: 2px 8px; border-radius: 3px; margin-left: auto; }
+  .division .card-type { color: #e63946; background: rgba(230,57,70,0.15); }
+  .junction .card-type { color: #f4a261; background: rgba(244,162,97,0.15); }
+  .town .card-type { color: #4895ef; background: rgba(72,149,239,0.15); }
+  .branch .card-type { color: #2a9d8f; background: rgba(42,157,143,0.15); }
+  .terminal .card-type { color: #c77dff; background: rgba(199,125,255,0.15); }
+  .staging .card-type { color: #888; background: rgba(136,136,136,0.15); }
+  .card-desc { font-size: 11px; color: #6a7a9a; margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; line-height: 1.5; }
+  .traffic-section { margin-bottom: 10px; }
+  .traffic-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #5a6a8a; margin-bottom: 6px; }
+  .car-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .car-tag { display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-family: 'JetBrains Mono', monospace; padding: 4px 10px; border-radius: 5px; background: #16213e; border: 1px solid #2a3a5c; color: #8899bb; line-height: 1.3; }
+  .car-tag .car-detail { color: #5a6a8a; font-size: 9.5px; }
+  .direction-arrow { font-weight: 700; font-size: 11px; margin-right: 2px; }
+  .direction-arrow.inbound { color: #4895ef; } .direction-arrow.outbound { color: #e9c46a; }
+  .card-divider { border: none; border-top: 1px solid #2a3a5c; margin: 10px 0; }
+  .full-width { grid-column: 1 / -1; }
+  .car-legend { margin-top: 24px; padding-top: 20px; border-top: 1px solid #2a3a5c; }
+  .car-legend h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7a8bb5; margin-bottom: 12px; }
+  .car-legend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .car-legend-item { display: flex; align-items: center; gap: 8px; font-size: 10.5px; font-family: 'JetBrains Mono', monospace; color: #6a7a9a; }
+  .car-legend-item .car-icon { font-size: 15px; width: 22px; text-align: center; }
+  .car-legend-item .car-name { color: #8899bb; font-weight: 500; }
+
+  /* Page 3 styles */
+  .ops-flow { margin-top: 24px; display: flex; flex-direction: column; gap: 24px; }
+  .train-card { background: #1a1a2e; border: 1px solid #2a3a5c; border-radius: 12px; padding: 24px 28px; position: relative; overflow: hidden; }
+  .train-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+  .train-card.freight::before { background: #4895ef; } .train-card.unit::before { background: #f4a261; }
+  .train-card.local::before { background: #2a9d8f; } .train-card.ore::before { background: #e9c46a; }
+  .train-card.passenger::before { background: #e63946; }
+  .train-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .train-icon { font-size: 20px; width: 32px; text-align: center; flex-shrink: 0; }
+  .train-name { font-size: 15px; font-weight: 700; color: #f0f0f0; }
+  .train-badge { font-size: 9px; font-family: 'JetBrains Mono', monospace; padding: 2px 8px; border-radius: 3px; margin-left: auto; letter-spacing: 0.5px; }
+  .freight .train-badge { color: #4895ef; background: rgba(72,149,239,0.15); }
+  .unit .train-badge { color: #f4a261; background: rgba(244,162,97,0.15); }
+  .local .train-badge { color: #2a9d8f; background: rgba(42,157,143,0.15); }
+  .ore .train-badge { color: #e9c46a; background: rgba(233,196,106,0.15); }
+  .passenger .train-badge { color: #e63946; background: rgba(230,57,70,0.15); }
+  .train-subtitle { font-size: 11px; color: #5a6a8a; font-family: 'JetBrains Mono', monospace; margin-bottom: 16px; margin-left: 44px; }
+  .flow-steps { display: flex; flex-direction: column; margin-left: 44px; }
+  .flow-step { display: flex; gap: 14px; align-items: flex-start; position: relative; padding-bottom: 14px; }
+  .flow-step:last-child { padding-bottom: 0; }
+  .flow-step::before { content: ''; position: absolute; left: 7px; top: 18px; bottom: 0; width: 2px; background: #2a3a5c; }
+  .flow-step:last-child::before { display: none; }
+  .step-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; flex-shrink: 0; margin-top: 2px; position: relative; z-index: 1; background: #1a1a2e; }
+  .step-dot.division { border-color: #e63946; } .step-dot.town { border-color: #4895ef; }
+  .step-dot.junction { border-color: #f4a261; } .step-dot.branch { border-color: #2a9d8f; }
+  .step-dot.terminal { border-color: #c77dff; } .step-dot.staging { border-color: #888; border-style: dashed; }
+  .step-dot.pass { border-color: #3a4a6c; }
+  .step-content { flex: 1; }
+  .step-location { font-size: 12px; font-weight: 700; color: #c0d0e0; margin-bottom: 2px; }
+  .step-action { font-size: 11px; color: #6a7a9a; font-family: 'JetBrains Mono', monospace; line-height: 1.5; }
+  .step-action strong { color: #8899bb; font-weight: 500; }
+  .step-cars { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .step-car-tag { font-size: 9.5px; font-family: 'JetBrains Mono', monospace; padding: 2px 8px; border-radius: 4px; background: #16213e; border: 1px solid #2a3a5c; color: #7a8bb5; }
+  .consist-note { font-size: 10.5px; color: #5a6a8a; font-family: 'JetBrains Mono', monospace; margin-left: 44px; margin-top: 10px; padding: 8px 14px; background: #16213e; border: 1px solid #2a3a5c; border-radius: 8px; line-height: 1.6; }
+  .consist-note strong { color: #8899bb; }
+  .consist-note em { color: #7a8bb5; font-style: normal; }
+  .ops-note { margin-top: 24px; padding: 16px 20px; background: #1a1a2e; border: 1px solid #2a3a5c; border-radius: 10px; font-size: 11px; color: #6a7a9a; font-family: 'JetBrains Mono', monospace; line-height: 1.6; }
+  .ops-note strong { color: #8899bb; } .ops-note em { color: #7a8bb5; font-style: normal; }
+  .two-col-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* Cover page */
+  .cover { background: linear-gradient(160deg, #0f1629 0%, #16213e 40%, #1a2744 100%); border: 1px solid #2a3a5c; border-radius: 16px; padding: 80px 60px 60px; max-width: 1400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #e63946, #f4a261, #4895ef, #e9c46a, #2a9d8f, #c77dff); }
+  .cover-pre { font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #5a6a8a; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+  .cover-title { font-size: 48px; font-weight: 700; color: #f0f0f0; letter-spacing: 3px; line-height: 1.15; margin-bottom: 8px; }
+  .cover-title span.red { color: #e63946; } .cover-title span.gold { color: #e9c46a; }
+  .cover-sub { font-size: 18px; color: #7a8bb5; margin-bottom: 40px; font-weight: 500; letter-spacing: 1px; }
+  .cover-line { width: 120px; height: 2px; background: #2a3a5c; margin: 0 auto 40px; }
+  .cover-details { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto 50px; }
+  .cover-detail { background: rgba(26,26,46,0.6); border: 1px solid #2a3a5c; border-radius: 10px; padding: 20px; }
+  .cover-detail-label { font-size: 9px; font-family: 'JetBrains Mono', monospace; color: #5a6a8a; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .cover-detail-value { font-size: 15px; font-weight: 700; color: #c0d0e0; }
+  .cover-detail-sub { font-size: 11px; color: #5a6a8a; margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+  .cover-rev { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #3a4a6c; margin-top: 40px; }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff !important; color: #111 !important; padding: 0 !important; gap: 0 !important; }
+    .container, .cover { background: #fff !important; border: none !important; box-shadow: none !important; border-radius: 0 !important; padding: 30px 40px !important; page-break-inside: avoid; break-inside: avoid; }
+    .cover { page-break-after: always; break-after: page; }
+    .container { page-break-before: auto; }
+    /* Force page breaks between major sections */
+    .container:nth-of-type(2) { page-break-after: always; break-after: page; } /* history */
+    .container:nth-of-type(3) { page-break-after: always; break-after: page; } /* schematic */
+    .container:nth-of-type(4) { page-break-after: always; break-after: page; } /* track plans 1a */
+    .container:nth-of-type(5) { page-break-after: always; break-after: page; } /* track plans 1b */
+    .container:nth-of-type(6) { page-break-after: always; break-after: page; } /* track plans 1c */
+    .container:nth-of-type(7) { page-break-after: always; break-after: page; } /* car types */
+    .cover::before { background: #333 !important; }
+    .cover-pre, .cover-rev { color: #666 !important; }
+    .cover-title { color: #111 !important; }
+    .cover-title span.red { color: #c0392b !important; }
+    .cover-title span.gold { color: #b8860b !important; }
+    .cover-sub { color: #444 !important; }
+    .cover-line { background: #ccc !important; }
+    .cover-detail { background: #f5f5f5 !important; border-color: #ddd !important; }
+    .cover-detail-label { color: #666 !important; }
+    .cover-detail-value { color: #222 !important; }
+    .cover-detail-sub { color: #666 !important; }
+    .cover-badge { border-color: #999 !important; }
+    .cover-badge.bnsf { color: #2a6cb8 !important; background: #e8f0fa !important; }
+    .cover-badge.dmir { color: #8b7000 !important; background: #faf5e0 !important; }
+    .cover-badge.amtrak { color: #a02020 !important; background: #fae8e8 !important; }
+    .cover-badge.nscale { color: #1a7a6e !important; background: #e5f5f2 !important; }
+    h1 { color: #111 !important; }
+    .subtitle { color: #555 !important; }
+    .page-badge { background: #eee !important; color: #555 !important; }
+    .legend-item { color: #444 !important; }
+    .history-heading { color: #222 !important; }
+    .history-heading .h-line { background: #ccc !important; }
+    .history-body { color: #333 !important; }
+    .history-body strong { color: #111 !important; }
+    .history-body em { color: #8b7000 !important; }
+    .history-card { background: #f8f8f8 !important; border-color: #ddd !important; }
+    .history-card p { color: #444 !important; }
+    .history-card p strong { color: #222 !important; }
+    .tl-year { color: #b06000 !important; }
+    .tl-text { color: #333 !important; }
+    .tl-text strong { color: #111 !important; }
+    .timeline::before { background: #ccc !important; }
+    .tl-entry::before { background: #ccc !important; border-color: #fff !important; }
+    .tl-entry.major::before { background: #b06000 !important; }
+    .tl-entry.fire::before { background: #c0392b !important; }
+    .tl-entry.merger::before { background: #2a6cb8 !important; }
+    .tl-entry.dmir-ev::before { background: #8b7000 !important; }
+    .track-plan { background: #f8f8f8 !important; border-color: #ddd !important; }
+    .tp-name { color: #111 !important; }
+    .tp-subtitle { color: #555 !important; }
+    .tp-notes { background: #f0f0f0 !important; border-color: #ddd !important; color: #444 !important; }
+    .tp-notes strong { color: #222 !important; }
+    .track-legend { border-color: #ccc !important; }
+    .ops-col h3 { color: #333 !important; }
+    .ops-col li { color: #444 !important; }
+    .ops-col li::before { color: #666 !important; }
+    .module-tag { background: #f0f0f0 !important; border-color: #ddd !important; color: #444 !important; }
+    .module-tag span { color: #b06000 !important; }
+    .modules { border-color: #ccc !important; }
+    .modeling-notes { background: rgba(200,160,80,0.06) !important; border-color: rgba(200,160,80,0.3) !important; }
+    .modeling-notes h3 { color: #9a6b20 !important; }
+    .modeling-notes li { color: #444 !important; }
+    .modeling-notes li strong { color: #222 !important; }
+    .modeling-notes .mn-summary { color: #666 !important; }
+    .modules h3, .track-legend h3, .car-legend h3 { color: #555 !important; }
+    .location-card { background: #f8f8f8 !important; border-color: #ddd !important; }
+    .card-title { color: #111 !important; }
+    .card-desc { color: #444 !important; }
+    .car-tag { background: #f0f0f0 !important; border-color: #ddd !important; color: #333 !important; }
+    .car-tag .car-detail { color: #666 !important; }
+    .car-legend-grid { color: #444 !important; }
+    .car-legend-item .car-name { color: #222 !important; }
+    .train-card { background: #f8f8f8 !important; border-color: #ddd !important; }
+    .train-name { color: #111 !important; }
+    .train-subtitle { color: #555 !important; }
+    .consist-note { background: #f0f0f0 !important; border-color: #ddd !important; color: #444 !important; }
+    .consist-note strong { color: #222 !important; }
+    .consist-note em { color: #444 !important; }
+    .ops-note { background: #f8f8f8 !important; border-color: #ddd !important; color: #444 !important; }
+    .ops-note strong { color: #222 !important; }
+    .ops-note em { color: #444 !important; }
+    .traffic-label { color: #333 !important; }
+    .flow-step::before { background: #ccc !important; }
+    .step-location { color: #222 !important; }
+    .step-action { color: #444 !important; }
+    .step-car-tag { background: #eee !important; border-color: #ccc !important; color: #333 !important; }
+    svg text { fill: #333 !important; }
+    svg line, svg path { stroke-opacity: 1 !important; }
+  }
+  .cover-badges { display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .cover-badge { font-size: 9px; font-family: 'JetBrains Mono', monospace; padding: 5px 14px; border-radius: 5px; letter-spacing: 1px; }
+  .cover-badge.bnsf { color: #4895ef; background: rgba(72,149,239,0.12); border: 1px solid rgba(72,149,239,0.25); }
+  .cover-badge.dmir { color: #e9c46a; background: rgba(233,196,106,0.12); border: 1px solid rgba(233,196,106,0.25); }
+  .cover-badge.amtrak { color: #e63946; background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.25); }
+  .cover-badge.nscale { color: #2a9d8f; background: rgba(42,157,143,0.12); border: 1px solid rgba(42,157,143,0.25); }
+
+  /* History page */
+  .history-section { margin-bottom: 28px; }
+  .history-section:last-child { margin-bottom: 0; }
+  .history-heading { font-size: 14px; font-weight: 700; color: #c0d0e0; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .history-heading .h-line { flex: 1; height: 1px; background: #2a3a5c; }
+  .history-body { font-size: 12px; color: #7a8bb5; line-height: 1.75; }
+  .history-body strong { color: #a0b0d0; }
+  .history-body em { color: #e9c46a; font-style: normal; font-weight: 500; }
+  .history-year { color: #f4a261; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; }
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 16px 0; position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: #2a3a5c; }
+  .tl-entry { display: flex; gap: 16px; align-items: flex-start; padding: 6px 0; position: relative; }
+  .tl-entry::before { content: ''; position: absolute; left: -19px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: #2a3a5c; border: 2px solid #16213e; z-index: 1; }
+  .tl-entry.major::before { background: #f4a261; }
+  .tl-entry.fire::before { background: #e63946; }
+  .tl-entry.merger::before { background: #4895ef; }
+  .tl-entry.dmir-ev::before { background: #e9c46a; }
+  .tl-year { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #f4a261; font-weight: 700; min-width: 48px; flex-shrink: 0; }
+  .tl-text { font-size: 11px; color: #7a8bb5; line-height: 1.5; }
+  .tl-text strong { color: #a0b0d0; }
+  .history-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px; }
+  .history-card { background: #1a1a2e; border: 1px solid #2a3a5c; border-radius: 10px; padding: 20px; }
+  .history-card h4 { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+  .history-card h4.gn { color: #4895ef; } .history-card h4.dmir-h { color: #e9c46a; }
+  .history-card h4.bn { color: #2a9d8f; } .history-card h4.bnsf-h { color: #f4a261; }
+  .history-card p { font-size: 11px; color: #6a7a9a; line-height: 1.6; }
+  .history-card p strong { color: #8899bb; }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+  <div class="cover-pre">Prototype-Based N Scale Operations Layout</div>
+  <div class="cover-title"><span class="red">BNSF</span> HINCKLEY SUB<br>& <span class="gold">DM&IR</span> ORE OPERATIONS</div>
+  <div class="cover-sub">Minneapolis to Duluth — Minnesota's Arrowhead Region</div>
+  <div class="cover-line"></div>
+  <div class="cover-details">
+    <div class="cover-detail">
+      <div class="cover-detail-label">Scale &amp; Track</div>
+      <div class="cover-detail-value">N Scale (1:160)</div>
+      <div class="cover-detail-sub">Micro Engineering Code 55<br>#6 Turnouts (~90 total)</div>
+    </div>
+    <div class="cover-detail">
+      <div class="cover-detail-label">Prototype</div>
+      <div class="cover-detail-value">BNSF Hinckley Subdivision</div>
+      <div class="cover-detail-sub">Coon Creek Jct → Boylston<br>~155 miles, ex-Great Northern</div>
+    </div>
+    <div class="cover-detail">
+      <div class="cover-detail-label">Layout Format</div>
+      <div class="cover-detail-value">Modular — 9 Scenes + Staging</div>
+      <div class="cover-detail-sub">Designed for garage construction<br>2–6 operator sessions</div>
+    </div>
+  </div>
+  <div class="cover-badges">
+    <div class="cover-badge bnsf">BNSF RAILWAY</div>
+    <div class="cover-badge dmir">DM&IR ORE SERVICE</div>
+    <div class="cover-badge amtrak">AMTRAK PASSENGER</div>
+    <div class="cover-badge nscale">JMRI / DCC CONTROL</div>
+  </div>
+  <div class="cover-rev">Version 0.1 — February 2026</div>
+</div>
+
+<!-- ==================== VERSION HISTORY ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>VERSION HISTORY</h1>
+    <div class="page-badge">CHANGELOG</div>
+  </div>
+  <div class="subtitle">Document revision log — what changed and when</div>
+
+  <div style="margin-top:24px">
+    <div class="train-card freight" style="padding:16px 20px">
+      <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px">
+        <div style="font-size:14px;font-weight:700;color:#4895ef;font-family:'JetBrains Mono',monospace;flex-shrink:0">v0.1</div>
+        <div style="font-size:11px;color:#5a6a8a;font-family:'JetBrains Mono',monospace">February 9, 2026</div>
+      </div>
+      <div style="font-size:11px;color:#8899bb;font-family:'JetBrains Mono',monospace;line-height:1.7">
+        <strong style="color:#f0f0f0">Initial version.</strong> Complete layout design document including prototype history, track schematic with 12 modules, detailed track plans for all locations (Northtown, Cambridge, Hinckley, Moose Lake, Carlton, Cloquet, Proctor, Rices Point, Ore Docks, Iron Range Staging, and double reverse loops at both ends). Rolling stock and commodities reference, six-operator session guide with continuous running via BNSF circuit, module build plan with per-module construction sequence, and locomotive/freight car purchasing roster. ~90 turnouts, ~105-130 pieces of rolling stock recommended.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HISTORY PAGE ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>PROTOTYPE HISTORY & BACKGROUND</h1>
+    <div class="page-badge">HISTORY — THE RAILROADS OF MINNESOTA'S ARROWHEAD</div>
+  </div>
+  <div class="subtitle">The real railroads behind the layout — from James J. Hill to BNSF</div>
+
+  <div class="history-section">
+    <div class="history-heading">Origins: Five Routes to the Twin Ports <div class="h-line"></div></div>
+    <div class="history-body">
+      At its peak, <strong>five separate railroads</strong> connected the Twin Cities (Minneapolis–St. Paul) to the Twin Ports (Duluth–Superior): the <strong>Great Northern</strong>, <strong>Northern Pacific</strong>, <strong>Soo Line</strong>, <strong>Chicago &amp; North Western</strong>, and the <strong>Milwaukee Road</strong> (via NP trackage rights). By the 1980s, consolidation, abandonment, and the BN merger had reduced all five routes to a single surviving line — the ex-Great Northern, now BNSF's <strong>Hinckley Subdivision</strong>. This layout models that last remaining connection, the sole rail link between Minnesota's two largest metro areas.
+    </div>
+  </div>
+
+  <div class="history-section">
+    <div class="history-heading">Timeline <div class="h-line"></div></div>
+    <div class="timeline">
+      <div class="tl-entry major"><div class="tl-year">1874</div><div class="tl-text"><strong>Duluth &amp; Iron Range Rail Road</strong> chartered by Charlemagne Tower to haul iron ore from the Vermilion Range to Two Harbors. First Minnesota ore shipment: July 31, 1884.</div></div>
+      <div class="tl-entry major"><div class="tl-year">1887</div><div class="tl-text"><strong>Eastern Railway of Minnesota</strong> formed by James J. Hill (St. Paul, Minneapolis &amp; Manitoba). Known as the "Duluth Short Line." Construction begins on a direct route from Hinckley to Superior.</div></div>
+      <div class="tl-entry major"><div class="tl-year">1888</div><div class="tl-text">Eastern Railway's 68-mile <strong>Hinckley–Superior main line opens</strong> September 23. Regular passenger service begins July 1889.</div></div>
+      <div class="tl-entry"><div class="tl-year">1891</div><div class="tl-text"><strong>Duluth, Missabe &amp; Northern Railway</strong> incorporated by the Merritt brothers to haul Mesabi Range ore. First DM&N ore train reaches Duluth docks July 22, 1893. Classification yard built at <strong>Proctor</strong>, with the dramatic <strong>2.2% Proctor Hill</strong> descent (600 ft drop) to the ore docks.</div></div>
+      <div class="tl-entry fire"><div class="tl-year">1894</div><div class="tl-text"><strong>Great Hinckley Fire</strong> — catastrophic firestorm destroys Hinckley and surrounding towns, killing 418 people. Two Eastern Railway trains become evacuation trains, saving hundreds of refugees. Engineer William Best and conductor George Powers run a combined freight and passenger train north through the flames to safety at Skunk Lake.</div></div>
+      <div class="tl-entry"><div class="tl-year">1898</div><div class="tl-text">Eastern Railway extends south from Hinckley to <strong>Coon Creek Junction</strong>, completing the direct Twin Cities–Twin Ports route. <strong>Cambridge</strong> becomes a station on the new line.</div></div>
+      <div class="tl-entry"><div class="tl-year">1907</div><div class="tl-text"><strong>Great Northern Railway</strong> formally purchases and absorbs the Eastern Railway of Minnesota. Line becomes GN's Mesabi Division, serving both ore traffic and Twin Cities–Duluth passenger trains.</div></div>
+      <div class="tl-entry dmir-ev"><div class="tl-year">1937–38</div><div class="tl-text"><strong>DM&IR formed</strong> — Duluth, Missabe &amp; Northern merges with Spirit Lake Transfer, Duluth &amp; Iron Range, and Interstate Transfer railways. All had been U.S. Steel properties since 1901. Two divisions: <em>Missabe</em> (ex-DM&N, western) and <em>Iron Range</em> (ex-D&IR, eastern).</div></div>
+      <div class="tl-entry dmir-ev"><div class="tl-year">1941</div><div class="tl-text">First <strong>2-8-8-4 Yellowstone</strong> steam locomotives delivered to DM&IR by Baldwin. 18 total built (8 M-3 class, 10 M-4 class) — the most powerful Yellowstones ever constructed at 140,000 lbf tractive effort. Proctor's <strong>turntable and roundhouse</strong> enlarged to accommodate the 128-foot locomotives. Hauled mile-long ore trains.</div></div>
+      <div class="tl-entry merger"><div class="tl-year">1970</div><div class="tl-text"><strong>Burlington Northern merger</strong> — Great Northern, Northern Pacific, Chicago Burlington &amp; Quincy, and Spokane Portland &amp; Seattle merge to form BN. Parallel NP route to Duluth downgraded; ex-GN line becomes the primary route. NP north of Hinckley abandoned 1977–1980.</div></div>
+      <div class="tl-entry"><div class="tl-year">1975–85</div><div class="tl-text"><strong>Amtrak "Arrowhead" / "North Star"</strong> service — Minneapolis–Duluth passenger train, funded by Minnesota. Named <em>Arrowhead</em> initially, renamed <em>North Star</em>. Chicago connection via overnight sleeper. By final years, only Cambridge and Sandstone served as intermediate stops. Service ended April 7, 1985 when state funding ceased.</div></div>
+      <div class="tl-entry merger"><div class="tl-year">1995</div><div class="tl-text"><strong>BNSF Railway formed</strong> — Burlington Northern merges with Atchison, Topeka &amp; Santa Fe. The Hinckley Sub now carries UP and CP trackage rights trains in addition to BNSF traffic, making it the busiest (and only) rail route between the Twin Cities and Twin Ports.</div></div>
+      <div class="tl-entry dmir-ev"><div class="tl-year">2004</div><div class="tl-text"><strong>Canadian National acquires DM&IR</strong> through purchase of Great Lakes Transportation from Blackstone Group. DM&IR's 212 miles of track and ore dock operations continue under CN ownership. Corporate identity dissolved into Wisconsin Central Ltd. in 2011.</div></div>
+      <div class="tl-entry"><div class="tl-year">2019</div><div class="tl-text"><strong>UP Big Boy #4014</strong> runs a steam excursion on the Hinckley Sub to Duluth Union Depot — one of the rare modern excursions over this line.</div></div>
+      <div class="tl-entry major"><div class="tl-year">2023</div><div class="tl-text"><strong>Northern Lights Express (NLX)</strong> — Minnesota Legislature appropriates $195 million for higher-speed passenger service, Minneapolis–Duluth. Proposed stops: Target Field, Coon Rapids, Cambridge, Hinckley, Superior, Duluth. Up to 90 mph, 4 daily round trips.</div></div>
+    </div>
+  </div>
+
+  <div class="history-section">
+    <div class="history-heading">The Railroads Modeled <div class="h-line"></div></div>
+    <div class="history-two-col">
+      <div class="history-card">
+        <h4 class="gn">Great Northern → Burlington Northern → BNSF Railway</h4>
+        <p>James J. Hill's "Empire Builder" railroad connected the Twin Cities to Puget Sound. The Hinckley Subdivision was built by Hill's <strong>Eastern Railway of Minnesota</strong> in 1888 as a direct shortcut to Duluth, bypassing the slower St. Paul &amp; Duluth route. Under GN, the line carried twice-daily passenger trains (<em>Gopher</em> and <em>Badger</em>), Mesabi Range ore, and general freight. Today BNSF operates <strong>2–5 trains daily</strong> — manifest freights, unit coal/grain/potash/taconite trains, and the <strong>Hinckley Local</strong> (M/W/F), which works industries at Cambridge and Hinckley. The line is <strong>single-track, TWC/ABS signaled</strong>, with nine passing sidings and 133 lb. continuously welded rail.</p>
+      </div>
+      <div class="history-card">
+        <h4 class="dmir-h">Duluth, Missabe &amp; Iron Range Railway</h4>
+        <p>The "Missabe Road" — <strong>King of the Iron-Ore Haulers</strong> — was formed in 1937–38 from predecessors dating to 1874. Owned by U.S. Steel for over a century, the DM&IR's sole purpose was moving iron ore (and later taconite pellets) from the Mesabi and Vermilion Ranges to Lake Superior docks at Duluth and Two Harbors. Proctor served as the main classification yard, with the famous <strong>2.2% Proctor Hill grade</strong> descending 600 feet to the ore docks. The engine facility's turntable and roundhouse were enlarged in 1941 to handle the 128-foot Yellowstone 2-8-8-4 locomotives. Trains of 100+ ore jennies weighing 8,000+ tons were routine. The <strong>BNSF silo dock</strong> remains the only active pellet-loading facility in Duluth; the ex-GN and ex-NP docks stand as dramatic inactive landmarks.</p>
+      </div>
+      <div class="history-card">
+        <h4 class="bn">Cloquet Terminal Railroad &amp; Sappi Paper Mill</h4>
+        <p>The <strong>Cloquet Terminal Railroad (CTRR)</strong> is a 1¼-mile terminal railroad serving the <strong>Sappi (ex-Potlatch) paper mill</strong> in Cloquet. Reached via the ex-NP <strong>Lakes Subdivision branch</strong> from Carlton, the mill is the heaviest single shipper on the layout — inbound wood chips in gondolas, bleaching chemicals in tank cars, kaolin clay in covered hoppers, and outbound finished paper rolls in boxcars. The branch local stages Cloquet-bound cars at Carlton for pickup and delivery.</p>
+      </div>
+      <div class="history-card">
+        <h4 class="bnsf-h">Trackage Rights &amp; Interchange</h4>
+        <p><strong>Union Pacific</strong> and <strong>Canadian Pacific Kansas City</strong> both hold trackage rights over the Hinckley Sub, each running approximately one mixed freight per day in each direction, plus occasional unit trains. This gives the layout <strong>three Class I railroad paint schemes</strong> on the mainline. At Rices Point yard in Duluth, BNSF interchanges with <strong>CN, UP, and CP</strong>. The <strong>St. Croix Valley Railroad (SCXY)</strong> connects at Hinckley via the ex-NP "Rush Line" south toward St. Paul, providing short-line interchange traffic.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="history-section">
+    <div class="history-heading">The 1894 Hinckley Fire <div class="h-line"></div></div>
+    <div class="history-body">
+      On September 1, 1894, a catastrophic firestorm engulfed Hinckley and six surrounding communities, killing <strong>418 people</strong> in one of the deadliest natural disasters in Minnesota history. The town of Hinckley was completely destroyed. Two trains of the Eastern Railway of Minnesota became life-saving evacuation vehicles — engineer <strong>William Best</strong> and conductor <strong>George Powers</strong> combined a freight and passenger train and ran north through the flames, eventually reaching the safety of Skunk Lake. Engineer <strong>Edward Barry</strong> ran a separate freight south. These acts of heroism are commemorated at the <strong>Hinckley Fire Museum</strong> (housed in the 1894 St. Paul &amp; Duluth depot, which survived the fire). For the layout, this history provides a powerful narrative connection to the real place — the rebuilt Hinckley that rose from the ashes went on to become the town we model today.
+    </div>
+  </div>
+
+  <div class="history-section">
+    <div class="history-heading">What This Layout Represents <div class="h-line"></div></div>
+    <div class="history-body">
+      This layout captures the <strong>modern BNSF Hinckley Subdivision</strong> (roughly 2000s–present era) with selective compression of the 155-mile route into a modular N scale format. It tells three interlocking stories: the <strong>BNSF mainline freight railroad</strong> connecting Minneapolis to Duluth — manifest trains, unit trains, and the characterful Hinckley Local; the <strong>DM&IR ore railroad</strong> hauling taconite from the Iron Range to Lake Superior docks through Proctor's dramatic hilltop yard; and the <strong>Amtrak passenger connection</strong>, either the historical North Star sleeper or the proposed Northern Lights Express. Together, they create a layout with <strong>six distinct operator jobs</strong> and the operational variety of a much larger railroad.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 1: SCHEMATIC ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>BNSF HINCKLEY SUB / DM&IR LAYOUT SCHEMATIC</h1>
+    <div class="page-badge">PAGE 1 — TRACK SCHEMATIC</div>
+  </div>
+  <div class="subtitle">Prototype-based N Scale Modular Layout — v0.1</div>
+  <div class="legend-row">
+    <div class="legend-item"><div class="legend-dot division"></div> Division Point</div>
+    <div class="legend-item"><div class="legend-dot junction"></div> Junction Yard</div>
+    <div class="legend-item"><div class="legend-dot town"></div> Town</div>
+    <div class="legend-item"><div class="legend-dot branch"></div> Branch Terminus</div>
+    <div class="legend-item"><div class="legend-dot terminal"></div> Terminal</div>
+    <div class="legend-item"><div class="legend-dot staging"></div> Staging</div>
+    <div class="legend-item"><div class="legend-line bnsf"></div> BNSF</div>
+    <div class="legend-item"><div class="legend-line dmir"></div> DM&IR</div>
+    <div class="legend-item"><div class="legend-line branch"></div> Branch</div>
+    <div class="legend-item"><span style="font-size:10px;color:#70a8ef;font-family:'JetBrains Mono'">═══</span> Double Track</div>
+  </div>
+  <svg viewBox="0 0 1400 520" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="abl" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="8 0, 0 3, 8 6" fill="#4895ef"/></marker>
+      <filter id="gr"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="go"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="gb"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="gt"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="gp"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <line x1="10" y1="300" x2="58" y2="300" stroke="#4895ef" stroke-width="3"/>
+    <!-- Northtown reverse loop module (hidden staging) -->
+    <path d="M 10,300 Q -30,300 -30,340 Q -30,380 10,380 L 50,380 Q 80,380 80,340 Q 80,300 58,300" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+    <path d="M 15,300 Q -20,300 -20,350 Q -20,400 15,400 L 45,400 Q 70,400 70,350 Q 70,300 55,300" stroke="#888" stroke-width="1.5" fill="none" stroke-dasharray="6,3"/>
+    <text x="25" y="355" text-anchor="middle" fill="#7a8bb5" font-size="8" font-weight="700" font-family="JetBrains Mono">REVERSE</text>
+    <text x="25" y="368" text-anchor="middle" fill="#7a8bb5" font-size="8" font-weight="700" font-family="JetBrains Mono">LOOPS</text>
+    <text x="25" y="382" text-anchor="middle" fill="#5a6b8b" font-size="6.5" font-family="JetBrains Mono">(hidden staging)</text>
+    <text x="25" y="320" fill="#5a6b8b" font-size="7" font-family="JetBrains Mono" text-anchor="middle">Chicago / West</text>
+    <line x1="58" y1="300" x2="1130" y2="300" stroke="#4895ef" stroke-width="3.5" stroke-opacity="0.9"/>
+    <!-- Northtown bypass (double track) -->
+    <line x1="58" y1="308" x2="160" y2="308" stroke="#4895ef" stroke-width="2.5" stroke-opacity="0.6"/>
+    <text x="110" y="325" text-anchor="middle" fill="#70a8ef" font-size="6.5" font-family="JetBrains Mono">═ bypass</text>
+    <line x1="95" y1="280" x2="95" y2="270" stroke="#4895ef" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="95" y="265" text-anchor="middle" fill="#4a5a7a" font-size="7" font-family="JetBrains Mono">Coon Creek Jct</text>
+    <path d="M 330,300 Q 355,278 385,278 L 450,278 Q 480,278 505,300" stroke="#4895ef" stroke-width="1.5" fill="none" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+    <path d="M 610,300 Q 635,278 665,278 L 720,278 Q 750,278 775,300" stroke="#4895ef" stroke-width="1.5" fill="none" stroke-opacity="0.2" stroke-dasharray="4,3"/>
+    <path d="M 790,300 Q 790,268 770,238 L 720,170" stroke="#2a9d8f" stroke-width="2.5" fill="none"/>
+    <text x="728" y="218" fill="#2a9d8f" font-size="9" font-family="JetBrains Mono" transform="rotate(-50,728,218)" text-anchor="middle">Branch Line</text>
+    <line x1="965" y1="68" x2="965" y2="110" stroke="#e9c46a" stroke-width="3" stroke-dasharray="8,4"/>
+    <path d="M 965,110 L 965,300" stroke="#e9c46a" stroke-width="3" fill="none"/>
+    <text x="935" y="185" fill="#e9c46a" font-size="10" font-family="JetBrains Mono" transform="rotate(-90,935,185)" text-anchor="middle">DM&IR Missabe Division</text>
+    <line x1="1130" y1="300" x2="1220" y2="300" stroke="#4895ef" stroke-width="3.5" stroke-opacity="0.9"/>
+    <!-- Proctor → Rices Point double track -->
+    <line x1="1130" y1="308" x2="1220" y2="308" stroke="#4895ef" stroke-width="2.5" stroke-opacity="0.6"/>
+    <text x="1175" y="325" text-anchor="middle" fill="#70a8ef" font-size="6.5" font-family="JetBrains Mono">═ double main</text>
+    <path d="M 965,300 Q 1005,330 1045,360 L 1105,395" stroke="#e9c46a" stroke-width="2.5" fill="none"/>
+    <!-- Proctor Hill double track (loaded down / empties up) -->
+    <path d="M 975,300 Q 1015,330 1055,360 L 1115,395" stroke="#e9c46a" stroke-width="1.8" fill="none" stroke-opacity="0.5"/>
+    <text x="1020" y="395" fill="#e9c46a" font-size="6.5" font-family="JetBrains Mono" font-style="italic">═ loaded ↓ / empties ↑</text>
+    <text x="975" y="380" fill="#5a6b8b" font-size="8" font-family="JetBrains Mono" font-style="italic">↘ 2.2% Proctor Hill</text>
+    <text x="1085" y="288" text-anchor="middle" fill="#4a5a7a" font-size="7" font-family="JetBrains Mono">Grassy Point Draw</text>
+    <rect x="1110" y="230" rx="10" ry="10" width="255" height="220" fill="none" stroke="#3a4a6c" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="1237" y="250" text-anchor="middle" fill="#5a6b8b" font-size="10" font-weight="700" font-family="JetBrains Mono">DULUTH TERMINAL</text>
+    <circle cx="965" cy="55" r="9" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="965" y="35" text-anchor="middle" fill="#e9c46a" font-size="11" font-weight="700">Iron Range</text>
+    <text x="965" y="20" text-anchor="middle" fill="#7a8bb5" font-size="9" font-family="JetBrains Mono">(Staging)</text>
+    <!-- Stations -->
+    <circle cx="95" cy="300" r="12" fill="#e63946" filter="url(#gr)"/><circle cx="95" cy="300" r="7" fill="#1a1a2e"/><circle cx="95" cy="300" r="3.5" fill="#e63946"/>
+    <text x="95" y="340" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Northtown</text>
+    <text x="95" y="353" text-anchor="middle" fill="#e63946" font-size="8.5" font-family="JetBrains Mono">Division Point</text>
+    <text x="95" y="364" text-anchor="middle" fill="#5a6b8b" font-size="7.5" font-family="JetBrains Mono">BNSF / UP / CPKC</text>
+    <circle cx="210" cy="300" r="7" fill="#4895ef" filter="url(#gb)"/>
+    <text x="210" y="340" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Cambridge</text>
+    <text x="210" y="353" text-anchor="middle" fill="#4895ef" font-size="8.5" font-family="JetBrains Mono">Town</text>
+    <circle cx="330" cy="300" r="7" fill="#4895ef" filter="url(#gb)"/>
+    <text x="330" y="340" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Hinckley</text>
+    <text x="330" y="353" text-anchor="middle" fill="#4895ef" font-size="8.5" font-family="JetBrains Mono">Town</text>
+    <text x="330" y="364" text-anchor="middle" fill="#5a6b8b" font-size="7" font-family="JetBrains Mono">SCXY Interchange</text>
+    <circle cx="490" cy="300" r="7" fill="#4895ef" filter="url(#gb)"/>
+    <text x="490" y="340" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Moose Lake</text>
+    <text x="490" y="353" text-anchor="middle" fill="#4895ef" font-size="8.5" font-family="JetBrains Mono">Town</text>
+    <circle cx="790" cy="300" r="10" fill="#f4a261" filter="url(#go)"/><circle cx="790" cy="300" r="5.5" fill="#1a1a2e"/><circle cx="790" cy="300" r="2.5" fill="#f4a261"/>
+    <text x="790" y="340" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Carlton</text>
+    <text x="790" y="353" text-anchor="middle" fill="#f4a261" font-size="8.5" font-family="JetBrains Mono">Junction</text>
+    <circle cx="710" cy="160" r="9" fill="#2a9d8f" filter="url(#gt)"/><circle cx="710" cy="160" r="5" fill="#1a1a2e"/><circle cx="710" cy="160" r="2.5" fill="#2a9d8f"/>
+    <text x="710" y="140" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Cloquet</text>
+    <text x="710" y="126" text-anchor="middle" fill="#2a9d8f" font-size="8.5" font-family="JetBrains Mono">Branch / Sappi Mill</text>
+    <circle cx="965" cy="300" r="12" fill="#f4a261" filter="url(#go)"/><circle cx="965" cy="300" r="7" fill="#1a1a2e"/><circle cx="965" cy="300" r="3.5" fill="#f4a261"/>
+    <text x="965" y="340" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Proctor</text>
+    <text x="965" y="353" text-anchor="middle" fill="#f4a261" font-size="8.5" font-family="JetBrains Mono">Junction Yard</text>
+    <circle cx="1220" cy="300" r="12" fill="#e63946" filter="url(#gr)"/><circle cx="1220" cy="300" r="7" fill="#1a1a2e"/><circle cx="1220" cy="300" r="3.5" fill="#e63946"/>
+    <text x="1220" y="278" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">Rices Point</text>
+    <text x="1220" y="265" text-anchor="middle" fill="#e63946" font-size="8.5" font-family="JetBrains Mono">BNSF Yard</text>
+    <!-- Rices Point reverse loops (east end) -->
+    <line x1="1220" y1="300" x2="1280" y2="300" stroke="#4895ef" stroke-width="3"/>
+    <path d="M 1280,300 Q 1320,300 1320,340 Q 1320,380 1280,380 L 1240,380 Q 1210,380 1210,340 Q 1210,300 1230,300" stroke="#888" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+    <path d="M 1275,300 Q 1310,300 1310,350 Q 1310,400 1275,400 L 1245,400 Q 1220,400 1220,350 Q 1220,300 1235,300" stroke="#888" stroke-width="1.5" fill="none" stroke-dasharray="6,3"/>
+    <text x="1265" y="355" text-anchor="middle" fill="#7a8bb5" font-size="7" font-weight="700" font-family="JetBrains Mono">REVERSE</text>
+    <text x="1265" y="367" text-anchor="middle" fill="#7a8bb5" font-size="7" font-weight="700" font-family="JetBrains Mono">LOOPS</text>
+    <text x="1265" y="380" text-anchor="middle" fill="#5a6b8b" font-size="6" font-family="JetBrains Mono">(hidden staging)</text>
+    <circle cx="1125" cy="405" r="10" fill="#c77dff" filter="url(#gp)"/><circle cx="1125" cy="405" r="5.5" fill="#1a1a2e"/><circle cx="1125" cy="405" r="2.5" fill="#c77dff"/>
+    <text x="1125" y="430" text-anchor="middle" fill="#f0f0f0" font-size="11.5" font-weight="700">DM&IR Ore Docks</text>
+    <text x="1125" y="443" text-anchor="middle" fill="#c77dff" font-size="8.5" font-family="JetBrains Mono">Terminal</text>
+    <text x="1340" y="300" text-anchor="middle" fill="#2a5a8c" font-size="9" font-family="JetBrains Mono" transform="rotate(90,1340,300)">Lake Superior ~~~</text>
+    <line x1="210" y1="395" x2="330" y2="395" stroke="#4895ef" stroke-width="1.5" stroke-opacity="0.4"/>
+    <line x1="210" y1="390" x2="210" y2="395" stroke="#4895ef" stroke-width="1.5" stroke-opacity="0.4"/>
+    <line x1="330" y1="390" x2="330" y2="395" stroke="#4895ef" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="270" y="408" text-anchor="middle" fill="#4895ef" font-size="8" font-family="JetBrains Mono" opacity="0.6">← Hinckley Local (M/W/F) →</text>
+    <text x="650" y="500" text-anchor="middle" fill="#3a4a6c" font-size="8" font-family="JetBrains Mono">BNSF Hinckley Subdivision (ex-Great Northern)</text>
+  </svg>
+  <div class="operations">
+    <div class="ops-col bnsf"><h3>BNSF Operations</h3><ul><li>Through freights — continuous circuit via reverse loops</li><li>Hinckley Local (Cambridge + Hinckley)</li><li>Unit trains (coal, taconite, potash, grain)</li><li>UP/CPKC trackage rights trains</li><li>Rices Pt grain elevator switching</li><li>Double main: Proctor ↔ Rices Point</li></ul></div>
+    <div class="ops-col branch"><h3>Cloquet Branch</h3><ul><li>Branch local (Carlton ↔ Cloquet)</li><li>Sappi paper mill switcher / CTRR</li><li>Wood chips / chemicals inbound</li><li>Paper / forest products outbound</li></ul></div>
+    <div class="ops-col dmir"><h3>DM&IR Operations</h3><ul><li>Ore trains (Range → Proctor → Docks)</li><li>Proctor yard classification</li><li>Turntable / roundhouse engine service</li><li>Proctor Hill descent (2.2% grade)</li><li>All-rail interchange at Proctor</li></ul></div>
+  </div>
+  <div class="modules"><h3>Suggested Module Build Order</h3>
+    <div class="module-list">
+      <div class="module-tag"><span>1</span> Northtown</div><div class="module-tag"><span>2</span> NTW Loops</div><div class="module-tag"><span>3</span> Cambridge</div><div class="module-tag"><span>4</span> Hinckley</div><div class="module-tag"><span>5</span> Carlton</div><div class="module-tag"><span>6</span> Cloquet</div><div class="module-tag"><span>7</span> Moose Lake</div><div class="module-tag"><span>8</span> Proctor</div><div class="module-tag"><span>9</span> Rices Point</div><div class="module-tag"><span>10</span> RP Loops</div><div class="module-tag"><span>11</span> Ore Docks</div><div class="module-tag"><span>+</span> Iron Range Staging</div>
+    </div>
+  </div>
+  <div class="modeling-notes">
+    <h3>⚠ Selective Compression &amp; Modeling Liberties</h3>
+    <ol>
+      <li><strong>BNSF mainline routed through Proctor.</strong> On the prototype, Proctor is a DM&IR-only facility on the bluff above Duluth. The BNSF Hinckley Sub continues from Carlton through the St. Louis River valley, crosses into Superior, Wisconsin, and terminates at Boylston. BNSF reaches Rices Point from the Superior side — not via Proctor. The layout routes BNSF through Proctor to create a single-track interchange point between the two railroads. Without this compression, the DM&IR would require an entirely separate mainline module, roughly doubling the terminal area footprint.</li>
+      <li><strong>Duluth terminal area simplified.</strong> The real Duluth/Superior terminal is a tangled web of multiple railroads crossing the St. Louis River estuary at different points. Grassy Point Draw exists (it carries ex-NP rail traffic across the river), but the schematic's clean linear flow — Carlton → Proctor → Grassy Point → Rices Point — compresses a complex terminal geography into a readable sequence. The operational relationships (BNSF yard, DM&IR classification, ore dock descent) are accurate; the physical routing between them is simplified.</li>
+      <li><strong>Moose Lake as stand-in.</strong> Moose Lake the town sits on I-35, not directly on the Hinckley Sub. The actual subdivision sidings in that stretch are at Askov, Bruno, and Nickerson. Moose Lake is used here as a more recognizable name representing a small mainline town with LP gas and farm supply traffic — modeled on Askov-type prototype industries.</li>
+      <li><strong>SCXY interchange at Hinckley.</strong> The St. Croix Valley Railroad (SCXY) operates on former BN trackage in the Rush City/North Branch area south of Hinckley. Whether SCXY interchange actually occurs at Hinckley versus further south is not fully confirmed — this may be a slight geographic liberty for operational convenience.</li>
+    </ol>
+    <div class="mn-summary">These compressions follow standard model railroad practice — preserving operational relationships and railroad character while fitting 155 prototype miles into a modular N scale layout. The "what they do" is accurate; the "exactly where they connect" is selectively compressed.</div>
+  </div>
+</div>
+
+<!-- TRACK PLANS - PART 1 -->
+<div class="container">
+  <div class="page-header">
+    <h1>TRACK ARRANGEMENT PLANS — SOUTHWEST END</h1>
+    <div class="page-badge">PAGE 1A — NORTHTOWN / CAMBRIDGE / HINCKLEY</div>
+  </div>
+  <div class="subtitle">Top-down track sketches for N scale module construction — ME Code 55, #6 turnouts</div>
+
+  <!-- NORTHTOWN -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot division"></div><div class="tp-name">Northtown / Minneapolis</div><div class="tp-type division">Division Point — ~7-9 ft module</div></div>
+    <div class="tp-subtitle">Selective compression of 300-acre hump yard. 53 bowl tracks → 8 classification + departure staging + caboose for N scale.</div>
+    <svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Reverse Loops (hidden staging)</text>
+      <text x="1050" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">To Cambridge →</text>
+      <!-- Mainline through -->
+      <line x1="0" y1="40" x2="1200" y2="40" stroke="#4895ef" stroke-width="3.5"/>
+      <text x="600" y="34" text-anchor="middle" fill="#4895ef" font-size="9" font-family="JetBrains Mono">BNSF MAIN — Hinckley Sub</text>
+      <!-- Bypass track (north side of main) — through trains avoid yard throat -->
+      <line x1="0" y1="22" x2="30" y2="22" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <line x1="30" y1="22" x2="50" y2="40" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <line x1="1150" y1="40" x2="1170" y2="22" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <line x1="1170" y1="22" x2="1200" y2="22" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <line x1="50" y1="22" x2="1150" y2="22" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <text x="600" y="18" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">BYPASS TRACK — through trains (UP/CPKC trackage rights, unit trains) clear yard throat</text>
+      <!-- Receiving yard -->
+      <line x1="40" y1="40" x2="80" y2="80" stroke="#8899bb" stroke-width="2"/>
+      <line x1="80" y1="80" x2="500" y2="80" stroke="#8899bb" stroke-width="2"/>
+      <line x1="40" y1="40" x2="80" y2="105" stroke="#8899bb" stroke-width="2"/>
+      <line x1="80" y1="105" x2="500" y2="105" stroke="#8899bb" stroke-width="2"/>
+      <line x1="80" y1="80" x2="110" y2="130" stroke="#8899bb" stroke-width="2"/>
+      <line x1="110" y1="130" x2="500" y2="130" stroke="#8899bb" stroke-width="2"/>
+      <text x="260" y="70" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono" text-anchor="middle">Receiving Tracks (3)</text>
+      <!-- Hump -->
+      <rect x="500" y="65" width="50" height="80" rx="4" fill="none" stroke="#f4a261" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="525" y="110" text-anchor="middle" fill="#f4a261" font-size="8" font-family="JetBrains Mono">HUMP</text>
+      <!-- Classification bowl -->
+      <line x1="550" y1="80" x2="600" y2="55" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="55" x2="950" y2="55" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="85" x2="600" y2="80" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="80" x2="950" y2="80" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="95" x2="600" y2="105" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="105" x2="950" y2="105" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="100" x2="600" y2="130" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="130" x2="950" y2="130" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="110" x2="600" y2="155" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="155" x2="950" y2="155" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="120" x2="600" y2="180" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="180" x2="950" y2="180" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="128" x2="600" y2="205" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="205" x2="950" y2="205" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="550" y1="135" x2="600" y2="230" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="600" y1="230" x2="950" y2="230" stroke="#8899bb" stroke-width="1.5"/>
+      <text x="775" y="48" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono" text-anchor="middle">Classification Bowl (8 tracks)</text>
+      <!-- Track labels -->
+      <text x="958" y="58" fill="#4895ef" font-size="7" font-family="JetBrains Mono">Duluth / Rices Pt</text>
+      <text x="958" y="83" fill="#4895ef" font-size="7" font-family="JetBrains Mono">Proctor / DM&IR</text>
+      <text x="958" y="108" fill="#2a9d8f" font-size="7" font-family="JetBrains Mono">Carlton / Cloquet</text>
+      <text x="958" y="133" fill="#4895ef" font-size="7" font-family="JetBrains Mono">Hinckley Local</text>
+      <text x="958" y="158" fill="#8899bb" font-size="7" font-family="JetBrains Mono">Manifest NB</text>
+      <text x="958" y="183" fill="#8899bb" font-size="7" font-family="JetBrains Mono">Unit train staging</text>
+      <text x="958" y="208" fill="#e9c46a" font-size="7" font-family="JetBrains Mono">Ore jenny empties</text>
+      <text x="958" y="233" fill="#8899bb" font-size="7" font-family="JetBrains Mono">Bad order / RIP</text>
+      <!-- Departure ladder — ALL 8 class tracks converge to departure lead -->
+      <line x1="950" y1="55" x2="1020" y2="55" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="80" x2="1020" y2="80" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="105" x2="1020" y2="105" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="130" x2="1020" y2="130" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="155" x2="1020" y2="155" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="180" x2="1020" y2="180" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="205" x2="1020" y2="205" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="950" y1="230" x2="1020" y2="230" stroke="#8899bb" stroke-width="1.5"/>
+      <!-- Upper 4 tracks merge -->
+      <line x1="1020" y1="55" x2="1060" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="1020" y1="80" x2="1060" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="1020" y1="105" x2="1070" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="1020" y1="130" x2="1080" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <!-- Lower 4 tracks merge -->
+      <line x1="1020" y1="155" x2="1080" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="1020" y1="180" x2="1090" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="1020" y1="205" x2="1100" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="1020" y1="230" x2="1110" y2="70" stroke="#8899bb" stroke-width="1.5"/>
+      <!-- Departure lead -->
+      <line x1="1060" y1="70" x2="1130" y2="70" stroke="#70a8ef" stroke-width="2"/>
+      <text x="1095" y="64" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">Departure</text>
+      <text x="1095" y="86" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">Lead</text>
+      <!-- Departure lead connects to mainline -->
+      <line x1="1130" y1="70" x2="1160" y2="40" stroke="#70a8ef" stroke-width="2"/>
+      <!-- Departure staging track — holds built trains waiting to depart -->
+      <line x1="1080" y1="70" x2="1100" y2="100" stroke="#70a8ef" stroke-width="1.5"/>
+      <line x1="1100" y1="100" x2="1200" y2="100" stroke="#70a8ef" stroke-width="1.5"/>
+      <text x="1155" y="95" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">Departure Staging</text>
+      <text x="1155" y="115" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">(built train holds here)</text>
+      <!-- Engine service -->
+      <line x1="200" y1="40" x2="230" y2="165" stroke="#666" stroke-width="1.5"/>
+      <line x1="230" y1="165" x2="420" y2="165" stroke="#666" stroke-width="1.5"/>
+      <rect x="280" y="170" width="100" height="30" rx="3" fill="#2a3a5c" stroke="#3a4a6c" stroke-width="1"/>
+      <text x="330" y="189" text-anchor="middle" fill="#7a8bb5" font-size="8" font-family="JetBrains Mono">Engine Service</text>
+      <text x="330" y="215" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Fuel / Sand / Service</text>
+      <!-- Caboose track -->
+      <line x1="240" y1="165" x2="260" y2="260" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="260" y1="260" x2="450" y2="260" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="310" y="266" width="90" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="355" y="280" text-anchor="middle" fill="#c9a227" font-size="7.5" font-family="JetBrains Mono">Caboose Track</text>
+      <text x="355" y="300" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">🚃 2-4 cabooses stored</text>
+      <!-- Yard office -->
+      <rect x="700" y="248" width="80" height="25" rx="3" fill="#2a3a5c" stroke="#3a4a6c" stroke-width="1"/>
+      <text x="740" y="264" text-anchor="middle" fill="#7a8bb5" font-size="8" font-family="JetBrains Mono">Yard Tower</text>
+      <!-- Compass -->
+      <text x="1160" y="370" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">N ↑</text>
+      <text x="50" y="370" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~7-9 ft × 2 ft &nbsp; ▸ 3 receiving + 8 classification + departure staging + caboose + engine service</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> 300 acres, 53 bowl tracks, third-largest BNSF hump yard. Receives/departs ~1,500 cars/day. <strong>Model approach:</strong> Selectively compress to 3 receiving + 8 classification + departure staging + caboose + engine service. Flat switching OK (hump optional). The 8 class tracks are blocked by destination — Duluth, Proctor/DM&IR, Carlton/Cloquet, Hinckley Local, manifest, unit trains, ore empties, and bad order. Full departure ladder on the east end connects all 8 tracks to a departure lead, with a departure staging track where built trains hold while the next cut is assembled. <strong>Caboose track:</strong> Stores 2-4 cabooses south of engine service — one added to manifests and Hinckley Local consists before departure. <strong>Key detail:</strong> Mainline passes along the north edge of the yard — through trains don't enter yard trackage.
+    </div>
+  </div>
+
+  <!-- NORTHTOWN REVERSE LOOPS (HIDDEN STAGING) -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot staging"></div><div class="tp-name">Northtown Reverse Loops</div><div class="tp-type staging">Hidden Staging — ~3×3 ft module</div></div>
+    <div class="tp-subtitle">Double reverse loop behind/beneath Northtown. Turns southbound departures into northbound arrivals for continuous running.</div>
+    <svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+      <text x="600" y="16" text-anchor="middle" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">↑ To/From Northtown Yard (west throat)</text>
+      <!-- Feed tracks from Northtown -->
+      <line x1="500" y1="30" x2="500" y2="60" stroke="#4895ef" stroke-width="3"/>
+      <line x1="700" y1="30" x2="700" y2="60" stroke="#4895ef" stroke-width="3"/>
+      <text x="500" y="55" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">Main 1</text>
+      <text x="700" y="55" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">Bypass</text>
+      <!-- Loop A (outer) -->
+      <path d="M 500,60 L 500,80 Q 500,100 480,100 L 180,100 Q 100,100 100,160 Q 100,220 180,220 L 1020,220 Q 1100,220 1100,160 Q 1100,100 1020,100 L 720,100 Q 700,100 700,80 L 700,60" stroke="#4895ef" stroke-width="2.5" fill="none"/>
+      <!-- Auto-reverse indicator A -->
+      <rect x="475" y="68" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="500" y="80" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
+      <!-- Loop B (inner) -->
+      <path d="M 500,60 L 500,80 Q 500,120 470,120 L 220,120 Q 160,120 160,170 Q 160,200 220,200 L 980,200 Q 1040,200 1040,170 Q 1040,120 980,120 L 730,120 Q 700,120 700,80 L 700,60" stroke="#70a8ef" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+      <!-- Auto-reverse indicator B -->
+      <rect x="675" y="68" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="700" y="80" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
+      <!-- Train hold positions -->
+      <rect x="350" y="210" width="120" height="18" rx="3" fill="none" stroke="#4895ef" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="410" y="222" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">🚂 Train Hold A</text>
+      <rect x="700" y="190" width="120" height="18" rx="3" fill="none" stroke="#70a8ef" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="760" y="202" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">🚂 Train Hold B</text>
+      <!-- Labels -->
+      <text x="600" y="160" text-anchor="middle" fill="#7a8bb5" font-size="11" font-weight="700" font-family="JetBrains Mono">HIDDEN STAGING</text>
+      <text x="600" y="175" text-anchor="middle" fill="#5a6a8a" font-size="8" font-family="JetBrains Mono">Double reverse loop — 2 trains in pipeline</text>
+      <!-- BXP88 block detection markers -->
+      <circle cx="300" cy="220" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="520" cy="220" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="850" cy="200" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="600" cy="100" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <text x="600" y="250" text-anchor="middle" fill="#f4a261" font-size="7" font-family="JetBrains Mono">● = BXP88 detection blocks — JMRI automates train sequencing</text>
+      <!-- Direction arrows -->
+      <text x="260" y="95" fill="#4895ef" font-size="7" font-family="JetBrains Mono">SB depart →</text>
+      <text x="800" y="95" fill="#4895ef" font-size="7" font-family="JetBrains Mono">→ NB arrive</text>
+      <text x="350" y="240" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Loop A: ~5 ft track (holds full manifest)</text>
+      <text x="700" y="240" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Loop B: ~4 ft track (holds full manifest)</text>
+      <!-- Module size -->
+      <text x="50" y="310" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3×3 ft (hidden beneath/behind Northtown) &nbsp; ▸ 2 AR1 auto-reversers &nbsp; ▸ BXP88 detection for JMRI sequencing &nbsp; ▸ ~4 turnouts</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Purpose:</strong> Converts the layout's south end from a dead-end stub into continuous running. A southbound departure from Northtown enters a loop and emerges as a new northbound arrival — different train symbol, fresh work for the yardmaster. <strong>Double loops:</strong> Two trains can stage simultaneously so the dispatcher always has traffic in the pipeline. While one train is being received and classified at Northtown, the next is already circling in staging. <strong>Detection:</strong> BXP88 blocks in each loop let JMRI track occupancy and automate train sequencing — the software can signal when a loop is clear and ready for the next departure. <strong>Wiring:</strong> Each loop feed requires a Digitrax AR1 auto-reverser to handle the polarity reversal. Loops connect to Northtown's west throat via the mainline and bypass track. <strong>Construction:</strong> This module is entirely hidden — no scenery needed. Can be built as a shelf below the Northtown benchwork or a separate free-standing unit behind it.
+    </div>
+  </div>
+
+  <!-- CAMBRIDGE -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Cambridge</div><div class="tp-type town">Town — ~3-4 ft module</div></div>
+    <div class="tp-subtitle">MP 107.4 — 8,800' siding, power switches both ends. First Hinckley Local stop. Proposed NLX station.</div>
+    <svg viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Northtown (SW)</text>
+      <text x="1060" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">To Hinckley (NE) →</text>
+      <!-- Main -->
+      <line x1="0" y1="60" x2="1200" y2="60" stroke="#4895ef" stroke-width="3.5"/>
+      <!-- Passing siding -->
+      <line x1="100" y1="60" x2="140" y2="85" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="140" y1="85" x2="900" y2="85" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="900" y1="85" x2="940" y2="60" stroke="#70a8ef" stroke-width="2"/>
+      <circle cx="100" cy="60" r="4" fill="#f4a261" stroke="none"/><circle cx="940" cy="60" r="4" fill="#f4a261" stroke="none"/>
+      <text x="520" y="79" text-anchor="middle" fill="#70a8ef" font-size="8" font-family="JetBrains Mono">Passing Siding — 8,800' prototype / ~55" N scale compressed</text>
+      <text x="100" y="52" fill="#f4a261" font-size="7" font-family="JetBrains Mono">Power SW</text>
+      <text x="940" y="52" fill="#f4a261" font-size="7" font-family="JetBrains Mono" text-anchor="end">Power SW</text>
+      <!-- Industry spurs off siding -->
+      <line x1="250" y1="85" x2="270" y2="115" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="270" y1="115" x2="420" y2="115" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="290" y="120" width="110" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="345" y="135" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Propane Dealer</text>
+      <text x="345" y="155" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🛢️ Tank cars (LPG)</text>
+      <!-- Feed mill -->
+      <line x1="500" y1="85" x2="520" y2="115" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="520" y1="115" x2="680" y2="115" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="540" y="120" width="120" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="600" y="135" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Feed Mill / Elevator</text>
+      <text x="600" y="155" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🚃 Covered hoppers (grain/feed)</text>
+      <!-- Team track / lumber yard -->
+      <line x1="730" y1="85" x2="750" y2="115" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="750" y1="115" x2="870" y2="115" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="760" y="120" width="100" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="810" y="135" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Lumber Yard</text>
+      <text x="810" y="155" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">⬜ Centerbeams</text>
+      <!-- Depot -->
+      <rect x="450" y="30" width="70" height="18" rx="3" fill="#2a3a5c" stroke="#4895ef" stroke-width="1"/>
+      <text x="485" y="42" text-anchor="middle" fill="#4895ef" font-size="8" font-family="JetBrains Mono">GN Depot</text>
+      <text x="485" y="22" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">1899 (relocated)</text>
+      <!-- Road crossing -->
+      <line x1="200" y1="30" x2="200" y2="130" stroke="#3a4a6c" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="205" y="180" fill="#3a4a6c" font-size="7" font-family="JetBrains Mono">Hwy 95</text>
+      <!-- Module dims -->
+      <text x="50" y="210" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3-4 ft × 1.5 ft &nbsp; ▸ 3 industry spurs (2-3 car spots each) &nbsp; ▸ Run-around via siding</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> 8,800' siding with power switches both ends (automatic). On-line shippers include processing plant and steel fabrication. <strong>Operations:</strong> Hinckley Local uses siding for run-around moves — pull empties, run around via siding, spot loads. Through freights duck into siding for meets. Industry spurs face trailing-point from the siding so the local can kick cars without fouling the main. <strong>Passenger:</strong> Depot on main side — NLX platform would go here.
+    </div>
+  </div>
+
+  <!-- HINCKLEY -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Hinckley</div><div class="tp-type town">Town — ~4-5 ft module</div></div>
+    <div class="tp-subtitle">MP 72.3 — Power siding, SCXY interchange, ex-NP crossing. Historic depot. Second Hinckley Local stop.</div>
+    <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Cambridge (SW)</text>
+      <text x="1050" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">To Moose Lake (NE) →</text>
+      <!-- Main -->
+      <line x1="0" y1="60" x2="1200" y2="60" stroke="#4895ef" stroke-width="3.5"/>
+      <!-- Passing siding -->
+      <line x1="100" y1="60" x2="140" y2="85" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="140" y1="85" x2="850" y2="85" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="850" y1="85" x2="890" y2="60" stroke="#70a8ef" stroke-width="2"/>
+      <circle cx="100" cy="60" r="4" fill="#f4a261"/><circle cx="890" cy="60" r="4" fill="#f4a261"/>
+      <text x="495" y="79" text-anchor="middle" fill="#70a8ef" font-size="8" font-family="JetBrains Mono">Passing Siding — power switches both ends</text>
+      <!-- Small yard track off siding -->
+      <line x1="200" y1="85" x2="230" y2="110" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="230" y1="110" x2="500" y2="110" stroke="#8899bb" stroke-width="1.5"/>
+      <text x="365" y="106" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Yard / Team Track (5-6 car)</text>
+      <!-- SCXY interchange -->
+      <line x1="140" y1="60" x2="100" y2="30" stroke="#888" stroke-width="2"/>
+      <line x1="100" y1="30" x2="0" y2="30" stroke="#888" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="50" y="25" fill="#888" font-size="8" font-family="JetBrains Mono">SCXY / Rush Line ↙</text>
+      <text x="50" y="42" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">(interchange track)</text>
+      <!-- Industry spurs -->
+      <line x1="350" y1="85" x2="370" y2="135" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="370" y1="135" x2="500" y2="135" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="380" y="140" width="100" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="430" y="155" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Fuel Dealer</text>
+      <text x="430" y="175" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🛢️ Tank cars (propane)</text>
+      <!-- Chemical processor -->
+      <line x1="550" y1="85" x2="570" y2="135" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="570" y1="135" x2="710" y2="135" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="580" y="140" width="120" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="640" y="155" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Chemical Processor</text>
+      <text x="640" y="175" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🚃 Covered hoppers</text>
+      <!-- Frac sand -->
+      <line x1="530" y1="110" x2="720" y2="110" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="720" y1="110" x2="750" y2="135" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="750" y1="135" x2="870" y2="135" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="760" y="140" width="100" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="810" y="155" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Frac Sand</text>
+      <text x="810" y="175" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🚃 Hoppers (outbound)</text>
+      <!-- Building supply off main side -->
+      <line x1="700" y1="60" x2="720" y2="35" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="720" y1="35" x2="850" y2="35" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="730" y="10" width="110" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="785" y="25" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Building Supply</text>
+      <!-- ex-NP crossing -->
+      <line x1="950" y1="0" x2="950" y2="90" stroke="#555" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <text x="960" y="12" fill="#555" font-size="7" font-family="JetBrains Mono">ex-NP (removed)</text>
+      <!-- Depot -->
+      <rect x="270" y="30" width="70" height="18" rx="3" fill="#2a3a5c" stroke="#4895ef" stroke-width="1"/>
+      <text x="305" y="42" text-anchor="middle" fill="#4895ef" font-size="8" font-family="JetBrains Mono">Depot</text>
+      <text x="305" y="22" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">National Register</text>
+      <!-- Dims -->
+      <text x="50" y="270" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~4-5 ft × 2 ft &nbsp; ▸ 4 industries + SCXY interchange &nbsp; ▸ Best switching puzzle on the layout</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> Power siding with automatic switches. SCXY "Rush Line" diverges south toward St. Paul. Ex-NP crossing removed (scenic detail — crossing shanty foundation). Two 2° curves south of town. <strong>Operations:</strong> Richest switching on the layout — 4 industries facing different directions plus SCXY interchange means the local crew has to plan their moves carefully. Frac sand spur faces outbound (loaded hoppers pulled south), fuel dealer faces inbound. Run-around via passing siding. <strong>Key detail:</strong> I-35 overpass visible from town — consider modeling the bridge for visual depth. <strong>⚠ Modeling liberty:</strong> SCXY operates on former BN trackage near Rush City/North Branch — whether interchange actually occurs at Hinckley or further south is not fully confirmed.
+    </div>
+  </div>
+</div>
+
+<!-- TRACK PLANS - PART 2 -->
+<div class="container">
+  <div class="page-header">
+    <h1>TRACK ARRANGEMENT PLANS — MIDDLE SECTION</h1>
+    <div class="page-badge">PAGE 1B — MOOSE LAKE / CARLTON / CLOQUET</div>
+  </div>
+  <div class="subtitle">Town, junction, and branch terminus modules</div>
+
+  <!-- MOOSE LAKE -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Moose Lake</div><div class="tp-type town">Town — ~2-3 ft module</div></div>
+    <div class="tp-subtitle">Small town between Askov and Carlton. Based on typical Hinckley Sub towns (Askov-type with manual siding and feed mill).</div>
+    <svg viewBox="0 0 1200 190" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Hinckley (SW)</text>
+      <text x="1060" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">To Carlton (NE) →</text>
+      <!-- Main -->
+      <line x1="0" y1="55" x2="1200" y2="55" stroke="#4895ef" stroke-width="3.5"/>
+      <!-- Short siding -->
+      <line x1="200" y1="55" x2="240" y2="80" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="240" y1="80" x2="700" y2="80" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="700" y1="80" x2="740" y2="55" stroke="#70a8ef" stroke-width="2"/>
+      <text x="470" y="74" text-anchor="middle" fill="#70a8ef" font-size="8" font-family="JetBrains Mono">Siding — manual ground throws</text>
+      <circle cx="200" cy="55" r="3" fill="#888"/><circle cx="740" cy="55" r="3" fill="#888"/>
+      <text x="200" y="48" fill="#888" font-size="7" font-family="JetBrains Mono">Manual</text>
+      <text x="740" y="48" fill="#888" font-size="7" font-family="JetBrains Mono" text-anchor="end">Manual</text>
+      <!-- LP gas dealer -->
+      <line x1="340" y1="80" x2="360" y2="110" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="360" y1="110" x2="480" y2="110" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="370" y="115" width="95" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="417" y="130" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">LP Gas Dealer</text>
+      <text x="417" y="148" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🛢️ Tank cars</text>
+      <!-- Farm supply -->
+      <line x1="560" y1="80" x2="580" y2="110" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="580" y1="110" x2="680" y2="110" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="585" y="115" width="90" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="630" y="130" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Farm Supply</text>
+      <text x="630" y="148" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🚃 Feed / fertilizer</text>
+      <!-- Depot -->
+      <rect x="430" y="28" width="80" height="18" rx="3" fill="#2a3a5c" stroke="#4895ef" stroke-width="1"/>
+      <text x="470" y="40" text-anchor="middle" fill="#4895ef" font-size="8" font-family="JetBrains Mono">Soo Line Depot</text>
+      <text x="470" y="20" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">1907 (Nat'l Register)</text>
+      <text x="50" y="183" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~2-3 ft × 1.5 ft &nbsp; ▸ 2 industry spurs &nbsp; ▸ Scenic "breather" between switching-heavy towns</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Note:</strong> Moose Lake doesn't have a siding on the prototype Hinckley Sub (the nearby Askov siding at MP ~54 has a 1.5-mile manual siding with a feed mill). This design composites typical small-town track features from Askov, Bruno, and Nickerson — all of which have manual sidings and minimal industry. <strong>Operations:</strong> Through manifests set out/pick up 1-2 cars here. Keeps it simple — this module provides visual variety and a passing point between the busier switching at Hinckley and Carlton.
+    </div>
+  </div>
+
+  <!-- CARLTON -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot junction"></div><div class="tp-name">Carlton</div><div class="tp-type junction">Junction — ~3-4 ft module</div></div>
+    <div class="tp-subtitle">Hinckley Sub meets Lakes Sub branch to Cloquet. Branch local stages cars here for Sappi mill runs.</div>
+    <svg viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Moose Lake (SW)</text>
+      <text x="1050" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">To Proctor (NE) →</text>
+      <!-- Main -->
+      <line x1="0" y1="80" x2="1200" y2="80" stroke="#4895ef" stroke-width="3.5"/>
+      <!-- Passing siding -->
+      <line x1="300" y1="80" x2="340" y2="105" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="340" y1="105" x2="900" y2="105" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="900" y1="105" x2="940" y2="80" stroke="#70a8ef" stroke-width="2"/>
+      <text x="620" y="99" text-anchor="middle" fill="#70a8ef" font-size="8" font-family="JetBrains Mono">Passing Siding</text>
+      <!-- Branch line diverging -->
+      <line x1="200" y1="80" x2="140" y2="30" stroke="#2a9d8f" stroke-width="2.5"/>
+      <line x1="140" y1="30" x2="0" y2="30" stroke="#2a9d8f" stroke-width="2.5"/>
+      <text x="70" y="24" fill="#2a9d8f" font-size="9" font-family="JetBrains Mono">↖ To Cloquet / Sappi Mill</text>
+      <text x="70" y="43" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">(ex-NP Lakes Sub branch)</text>
+      <!-- Branch staging track -->
+      <line x1="350" y1="105" x2="370" y2="135" stroke="#2a9d8f" stroke-width="1.5"/>
+      <line x1="370" y1="135" x2="600" y2="135" stroke="#2a9d8f" stroke-width="1.5"/>
+      <text x="485" y="130" text-anchor="middle" fill="#2a9d8f" font-size="7" font-family="JetBrains Mono">Branch staging (Cloquet block — 6-8 cars)</text>
+      <!-- Fuel dealer -->
+      <line x1="650" y1="105" x2="670" y2="155" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="670" y1="155" x2="800" y2="155" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="680" y="160" width="100" height="22" rx="3" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="730" y="175" text-anchor="middle" fill="#c9a227" font-size="8" font-family="JetBrains Mono">Fuel Dealer</text>
+      <!-- Team track -->
+      <line x1="800" y1="105" x2="820" y2="155" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="820" y1="155" x2="900" y2="155" stroke="#c9a227" stroke-width="1.5"/>
+      <text x="860" y="150" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Team Track</text>
+      <!-- Depot -->
+      <rect x="500" y="50" width="70" height="18" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="535" y="62" text-anchor="middle" fill="#f4a261" font-size="8" font-family="JetBrains Mono">Depot</text>
+      <text x="50" y="250" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3-4 ft × 2 ft &nbsp; ▸ Branch diverges at SW end &nbsp; ▸ Branch staging track holds Cloquet block between manifest and local runs</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Operations key:</strong> Carlton is the interchange point between mainline and branch. The NB manifest sets out the Cloquet block on the branch staging track. Later, the branch local picks up those cars and takes them to Cloquet. On return, the branch local leaves outbound paper cars on the staging track for the next SB manifest to grab. This two-step handoff is the operational heart of the junction.
+    </div>
+  </div>
+
+  <!-- CLOQUET -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot branch"></div><div class="tp-name">Cloquet / Sappi Paper Mill</div><div class="tp-type branch">Branch Terminus — ~3-4 ft module</div></div>
+    <div class="tp-subtitle">End of ex-NP Lakes Sub. Sappi (Potlatch) paper mill — heaviest single shipper on layout. CTRR switching.</div>
+    <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Carlton</text>
+      <!-- Branch arrival -->
+      <line x1="0" y1="60" x2="300" y2="60" stroke="#2a9d8f" stroke-width="2.5"/>
+      <text x="150" y="54" text-anchor="middle" fill="#2a9d8f" font-size="8" font-family="JetBrains Mono">Lakes Sub Branch from Carlton</text>
+      <!-- Runaround -->
+      <line x1="300" y1="60" x2="340" y2="85" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="340" y1="85" x2="800" y2="85" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="800" y1="85" x2="840" y2="60" stroke="#70a8ef" stroke-width="2"/>
+      <line x1="300" y1="60" x2="840" y2="60" stroke="#2a9d8f" stroke-width="2"/>
+      <text x="570" y="54" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">CTRR Interchange / Runaround</text>
+      <!-- Mill receiving tracks -->
+      <line x1="400" y1="85" x2="430" y2="120" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="430" y1="120" x2="750" y2="120" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="450" y1="85" x2="480" y2="145" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="480" y1="145" x2="750" y2="145" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="500" y1="85" x2="530" y2="170" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="530" y1="170" x2="750" y2="170" stroke="#c9a227" stroke-width="1.5"/>
+      <text x="630" y="115" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Wood chips (🔩 gons)</text>
+      <text x="630" y="140" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Chemicals (🛢️ tanks) + Clay (🚃 hoppers)</text>
+      <text x="630" y="165" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Paper out (📦 boxcars) + Supplies</text>
+      <!-- Mill building -->
+      <rect x="770" y="100" width="180" height="95" rx="5" fill="#2a3a5c" stroke="#2a9d8f" stroke-width="1.5"/>
+      <text x="860" y="140" text-anchor="middle" fill="#2a9d8f" font-size="12" font-weight="700" font-family="JetBrains Mono">SAPPI</text>
+      <text x="860" y="155" text-anchor="middle" fill="#2a9d8f" font-size="8" font-family="JetBrains Mono">Paper Mill</text>
+      <text x="860" y="175" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">(ex-Potlatch)</text>
+      <!-- Bumper -->
+      <line x1="840" y1="55" x2="860" y2="55" stroke="#666" stroke-width="4"/>
+      <text x="50" y="268" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3-4 ft × 2 ft &nbsp; ▸ 3 mill receiving tracks + runaround &nbsp; ▸ Heaviest switching volume per car on layout</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> CTRR is a 1¼-mile terminal railroad handling mill-internal switching. BNSF branch local hands off cars at the interchange; CTRR places them at mill spots. <strong>Model:</strong> Combine CTRR and BNSF switching into one operator job. Three mill tracks handle different commodities — wood chips (gondolas, heaviest volume), chemicals/clay (tanks + hoppers), and finished paper (boxcars, outbound). The runaround is essential for repositioning the locomotive after spotting cars at the bumper end.
+    </div>
+  </div>
+</div>
+
+<!-- TRACK PLANS - PART 3 -->
+<div class="container">
+  <div class="page-header">
+    <h1>TRACK ARRANGEMENT PLANS — NORTHEAST END</h1>
+    <div class="page-badge">PAGE 1C — PROCTOR / RICES POINT / ORE DOCKS / STAGING</div>
+  </div>
+  <div class="subtitle">Junction yard, terminal facilities, and DM&IR operations</div>
+
+  <!-- PROCTOR -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot junction"></div><div class="tp-name">Proctor Yard</div><div class="tp-type junction">Junction Yard — ~7-9 ft module</div></div>
+    <div class="tp-subtitle">BNSF + DM&IR classification. Ore trains from Iron Range classified for dock runs and all-rail interchange.</div>
+    <svg viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← To Carlton (SW)</text>
+      <text x="1030" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">To Rices Point (E) →</text>
+      <!-- BNSF Main -->
+      <line x1="0" y1="50" x2="1200" y2="50" stroke="#4895ef" stroke-width="3.5"/>
+      <!-- BNSF Second Main (Proctor → Rices Pt double track) -->
+      <line x1="850" y1="50" x2="870" y2="35" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <line x1="870" y1="35" x2="1200" y2="35" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <text x="1050" y="30" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">BNSF MAIN 2 → Rices Pt (double track)</text>
+      <text x="600" y="44" text-anchor="middle" fill="#4895ef" font-size="8" font-family="JetBrains Mono">BNSF MAIN 1</text>
+      <!-- DM&IR arrival from north -->
+      <line x1="400" y1="0" x2="400" y2="50" stroke="#e9c46a" stroke-width="3"/>
+      <text x="380" y="12" fill="#e9c46a" font-size="9" font-family="JetBrains Mono">↑ From Iron Range</text>
+      <!-- BNSF yard tracks (3 tracks now) -->
+      <line x1="200" y1="50" x2="240" y2="80" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="240" y1="80" x2="800" y2="80" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="800" y1="80" x2="840" y2="50" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="260" y1="80" x2="280" y2="105" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="280" y1="105" x2="780" y2="105" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="780" y1="105" x2="800" y2="80" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="290" y1="105" x2="310" y2="128" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="310" y1="128" x2="760" y2="128" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="760" y1="128" x2="780" y2="105" stroke="#8899bb" stroke-width="1.5"/>
+      <text x="540" y="74" fill="#4895ef" font-size="7" font-family="JetBrains Mono" text-anchor="middle">BNSF Class. 1 — Rices Pt / Grain</text>
+      <text x="540" y="100" fill="#4895ef" font-size="7" font-family="JetBrains Mono" text-anchor="middle">BNSF Class. 2 — Manifest / Southbound</text>
+      <text x="540" y="123" fill="#4895ef" font-size="7" font-family="JetBrains Mono" text-anchor="middle">BNSF Class. 3 — DM&IR interchange hold</text>
+      <!-- DM&IR yard tracks -->
+      <line x1="420" y1="50" x2="450" y2="155" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="450" y1="155" x2="900" y2="155" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="460" y1="155" x2="480" y2="180" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="480" y1="180" x2="900" y2="180" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="490" y1="180" x2="510" y2="205" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="510" y1="205" x2="900" y2="205" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="520" y1="205" x2="540" y2="230" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="540" y1="230" x2="900" y2="230" stroke="#e9c46a" stroke-width="1.5"/>
+      <text x="700" y="151" fill="#e9c46a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">DM&IR — Ore dock (loaded)</text>
+      <text x="700" y="176" fill="#e9c46a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">DM&IR — Ore dock (staged)</text>
+      <text x="700" y="201" fill="#e9c46a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">DM&IR — All-rail interchange</text>
+      <text x="700" y="226" fill="#e9c46a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">DM&IR — Empties returning to Range</text>
+      <!-- DM&IR departure to ore docks — double track Proctor Hill -->
+      <!-- Track 1: Loaded ore descending -->
+      <line x1="900" y1="155" x2="980" y2="250" stroke="#e9c46a" stroke-width="2.5"/>
+      <line x1="980" y1="250" x2="1200" y2="250" stroke="#e9c46a" stroke-width="2.5"/>
+      <!-- Track 2: Empties returning uphill -->
+      <line x1="900" y1="180" x2="993" y2="268" stroke="#e9c46a" stroke-width="1.8" stroke-opacity="0.6"/>
+      <line x1="993" y1="268" x2="1200" y2="268" stroke="#e9c46a" stroke-width="1.8" stroke-opacity="0.6"/>
+      <text x="1100" y="244" fill="#e9c46a" font-size="8" font-family="JetBrains Mono" text-anchor="middle">→ Proctor Hill ↘ (loaded)</text>
+      <text x="1100" y="263" fill="#e9c46a" font-size="7" font-family="JetBrains Mono" text-anchor="middle" opacity="0.7">← empties return ↗</text>
+      <text x="1100" y="284" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">2.2% grade — double track to Ore Docks</text>
+      <!-- Interchange crossover — BNSF track 3 to DM&IR -->
+      <line x1="330" y1="128" x2="350" y2="155" stroke="#2ec4b6" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="270" y="148" fill="#2ec4b6" font-size="7" font-family="JetBrains Mono">BNSF↔DM&IR</text>
+      <text x="270" y="160" fill="#2ec4b6" font-size="7" font-family="JetBrains Mono">interchange</text>
+      <!-- Caboose track — short spur off DM&IR yard south side -->
+      <line x1="550" y1="230" x2="570" y2="258" stroke="#c9a227" stroke-width="1.5"/>
+      <line x1="570" y1="258" x2="720" y2="258" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="600" y="264" width="90" height="18" rx="2" fill="#2a3a5c" stroke="#c9a227" stroke-width="1"/>
+      <text x="645" y="276" text-anchor="middle" fill="#c9a227" font-size="7" font-family="JetBrains Mono">Caboose Track</text>
+      <text x="645" y="294" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">🚃 DM&IR cabooses</text>
+      <!-- Turntable & Roundhouse -->
+      <!-- Approach track from DM&IR yard to turntable -->
+      <line x1="200" y1="155" x2="160" y2="190" stroke="#e9c46a" stroke-width="1.5"/>
+      <line x1="160" y1="190" x2="160" y2="220" stroke="#e9c46a" stroke-width="1.5"/>
+      <!-- Turntable pit (circle) -->
+      <circle cx="160" cy="260" r="40" fill="#1a2a4c" stroke="#3a5a8c" stroke-width="1.5"/>
+      <!-- Turntable bridge (rotatable line) -->
+      <line x1="160" y1="220" x2="160" y2="300" stroke="#e9c46a" stroke-width="2.5"/>
+      <!-- Roundhouse arc -->
+      <path d="M 108 235 A 65 65 0 0 0 108 285" fill="none" stroke="#5a6b8b" stroke-width="6" opacity="0.5"/>
+      <!-- Stall tracks radiating from turntable -->
+      <line x1="120" y1="260" x2="95" y2="240" stroke="#5a6b8b" stroke-width="1.2"/>
+      <line x1="120" y1="260" x2="88" y2="255" stroke="#5a6b8b" stroke-width="1.2"/>
+      <line x1="120" y1="260" x2="88" y2="270" stroke="#5a6b8b" stroke-width="1.2"/>
+      <line x1="120" y1="260" x2="95" y2="285" stroke="#5a6b8b" stroke-width="1.2"/>
+      <!-- Labels -->
+      <text x="160" y="258" text-anchor="middle" fill="#e9c46a" font-size="6.5" font-family="JetBrains Mono">TURNTABLE</text>
+      <text x="70" y="262" text-anchor="middle" fill="#7a8bb5" font-size="6.5" font-family="JetBrains Mono">Roundhouse</text>
+      <text x="70" y="273" text-anchor="middle" fill="#7a8bb5" font-size="6" font-family="JetBrains Mono">(4 stalls)</text>
+      <!-- Fuel/sand service spur off approach -->
+      <line x1="160" y1="200" x2="80" y2="200" stroke="#5a6b8b" stroke-width="1.2"/>
+      <rect x="30" y="192" width="50" height="16" rx="2" fill="#2a3a5c" stroke="#3a4a6c" stroke-width="1"/>
+      <text x="55" y="203" text-anchor="middle" fill="#7a8bb5" font-size="6.5" font-family="JetBrains Mono">Fuel / Sand</text>
+      <text x="50" y="330" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~7-9 ft × 2.5 ft &nbsp; ▸ 3 BNSF class. + 4 DM&IR tracks + interchange + caboose + turntable/roundhouse</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> DM&IR's main engine facility at Proctor included a turntable and roundhouse, upgraded in the 1940s to handle 128-foot Yellowstone 2-8-8-4s. Original backshop buildings still stand. <strong>Model:</strong> 4-stall partial roundhouse with working turntable — N scale 120' turntable is ~9" diameter. Fuel and sand service on approach track. <strong>BNSF side (3 tracks):</strong> Track 1 holds Rices Point/grain cars, Track 2 holds manifest/southbound, Track 3 is the DM&IR interchange hold — giving the crew a dedicated place to stage cars before passing them across. This eliminates the bottleneck of separating blocks with only 2 tracks. <strong>Caboose track:</strong> Short spur south of DM&IR yard stores DM&IR cabooses for ore train service. <strong>Operations:</strong> DM&IR ore trains arrive from Iron Range staging and are sorted — dock-bound cars staged for Proctor Hill descent, all-rail cars handed to BNSF via the interchange crossover, empties cycled back to staging. DM&IR power turns on the turntable between runs. Two operators can work simultaneously — one on BNSF side, one on DM&IR. <strong>⚠ Modeling liberty:</strong> On the prototype, Proctor is a DM&IR-only facility — the BNSF Hinckley Sub does not pass through here. BNSF continues from Carlton into Superior, WI and reaches Rices Point from the east. Routing BNSF through Proctor is a selective compression that creates the interchange without requiring a separate DM&IR mainline module.
+    </div>
+  </div>
+
+  <!-- RICES POINT -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot division"></div><div class="tp-name">Rices Point Yard</div><div class="tp-type division">BNSF Yard / Duluth — ~4-6 ft module</div></div>
+    <div class="tp-subtitle">Ex-NP yard on Rice's Point peninsula. Grain elevator marshalling, 4-railroad interchange, port traffic.</div>
+    <svg viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← From Proctor (double main via Grassy Pt Draw)</text>
+      <!-- Main arrival — double track from Proctor -->
+      <line x1="0" y1="50" x2="400" y2="50" stroke="#4895ef" stroke-width="3.5"/>
+      <line x1="0" y1="35" x2="380" y2="35" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <line x1="380" y1="35" x2="400" y2="50" stroke="#70a8ef" stroke-width="2" stroke-opacity="0.7"/>
+      <text x="190" y="30" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">BNSF Main 2 (from Proctor — double track)</text>
+      <text x="190" y="45" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">BNSF Main 1</text>
+      <!-- Through leads to reverse loops (east end) -->
+      <line x1="400" y1="50" x2="1100" y2="50" stroke="#4895ef" stroke-width="2" stroke-opacity="0.4"/>
+      <line x1="1100" y1="50" x2="1200" y2="50" stroke="#888" stroke-width="2" stroke-dasharray="6,3"/>
+      <line x1="400" y1="35" x2="1100" y2="35" stroke="#70a8ef" stroke-width="1.5" stroke-opacity="0.3"/>
+      <line x1="1100" y1="35" x2="1200" y2="35" stroke="#888" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="1160" y="30" text-anchor="middle" fill="#888" font-size="7" font-family="JetBrains Mono">To Reverse</text>
+      <text x="1160" y="42" text-anchor="middle" fill="#888" font-size="7" font-family="JetBrains Mono">Loops →</text>
+      <!-- Yard ladder -->
+      <line x1="400" y1="50" x2="440" y2="75" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="440" y1="75" x2="900" y2="75" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="400" y1="50" x2="440" y2="100" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="440" y1="100" x2="900" y2="100" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="440" y1="100" x2="470" y2="125" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="470" y1="125" x2="900" y2="125" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="470" y1="125" x2="500" y2="150" stroke="#8899bb" stroke-width="1.5"/>
+      <line x1="500" y1="150" x2="900" y2="150" stroke="#8899bb" stroke-width="1.5"/>
+      <text x="670" y="70" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">Yard Track 1 — General Mills A elevator</text>
+      <text x="670" y="95" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">Yard Track 2 — Cargill elevator</text>
+      <text x="670" y="120" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">Yard Track 3 — AGP elevator / Interchange (CN/UP/CP)</text>
+      <text x="670" y="145" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono" text-anchor="middle">Yard Track 4 — Port traffic / Clure Terminal / St. Lawrence Cement</text>
+      <!-- Elevator structures -->
+      <rect x="920" y="55" width="120" height="110" rx="5" fill="#2a3a5c" stroke="#e63946" stroke-width="1.5"/>
+      <text x="980" y="95" text-anchor="middle" fill="#e63946" font-size="10" font-weight="700" font-family="JetBrains Mono">GRAIN</text>
+      <text x="980" y="110" text-anchor="middle" fill="#e63946" font-size="8" font-family="JetBrains Mono">ELEVATORS</text>
+      <text x="980" y="130" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Gen Mills / Cargill / AGP</text>
+      <text x="980" y="145" text-anchor="middle" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">🚃 Covered hoppers</text>
+      <!-- Waterfront -->
+      <line x1="920" y1="175" x2="1100" y2="175" stroke="#2a5a8c" stroke-width="2"/>
+      <text x="1010" y="195" text-anchor="middle" fill="#2a5a8c" font-size="9" font-family="JetBrains Mono">~~~ Duluth Harbor ~~~</text>
+      <text x="1010" y="210" text-anchor="middle" fill="#2a5a8c" font-size="7" font-family="JetBrains Mono">St. Louis Bay / Lake Superior</text>
+      <!-- SW switcher -->
+      <rect x="200" y="60" width="80" height="20" rx="3" fill="#2a3a5c" stroke="#3a4a6c" stroke-width="1"/>
+      <text x="240" y="74" text-anchor="middle" fill="#7a8bb5" font-size="7" font-family="JetBrains Mono">SW1200 Switcher</text>
+      <text x="50" y="250" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~4-6 ft × 2 ft &nbsp; ▸ 4 yard tracks + elevator complex + waterfront scenic &nbsp; ▸ SW switcher spots elevator tracks</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> BNSF's ex-NP yard on Rice's Point. Three active elevators along Duluth waterfront (General Mills A, Cargill, AGP). CP has a small yard nearby (St. Lawrence Cement area). SW1200 switchers work the yard. <strong>Operations:</strong> Grain unit trains arrive and cars are spotted at elevator tracks. Port traffic (flatcars for wind components, containers for Cargo Connect) worked by yard switcher. This is a dedicated yard-switcher job — constant shuffling between elevator spots. <strong>⚠ Modeling liberty:</strong> On the prototype, BNSF reaches Rices Point via Superior, WI (Grassy Point Draw crossing) — not directly from Proctor. The layout connects these facilities in sequence for operational flow; the real terminal geography is considerably more complex.
+    </div>
+  </div>
+
+  <!-- DM&IR ORE DOCKS -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot terminal"></div><div class="tp-name">DM&IR Ore Docks</div><div class="tp-type terminal">Terminal — ~3-4 ft module</div></div>
+    <div class="tp-subtitle">West Duluth / Missabe Junction. Ore dock loading. Trains descend 2.2% from Proctor (600 ft drop).</div>
+    <svg viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">← From Proctor (2.2% downgrade — double track)</text>
+      <!-- Approach tracks -->
+      <line x1="0" y1="50" x2="300" y2="50" stroke="#e9c46a" stroke-width="2.5"/>
+      <line x1="0" y1="75" x2="300" y2="75" stroke="#e9c46a" stroke-width="2.5"/>
+      <text x="150" y="44" fill="#e9c46a" font-size="8" font-family="JetBrains Mono" text-anchor="middle">Loaded (downhill) →</text>
+      <text x="150" y="92" fill="#e9c46a" font-size="8" font-family="JetBrains Mono" text-anchor="middle">← Empties (uphill return)</text>
+      <!-- Dock tracks -->
+      <line x1="300" y1="50" x2="900" y2="50" stroke="#c77dff" stroke-width="2"/>
+      <line x1="300" y1="75" x2="340" y2="50" stroke="#e9c46a" stroke-width="1.5"/>
+      <!-- Active dock -->
+      <rect x="400" y="25" width="480" height="50" rx="5" fill="#2a3a5c" stroke="#c77dff" stroke-width="2"/>
+      <text x="640" y="48" text-anchor="middle" fill="#c77dff" font-size="11" font-weight="700" font-family="JetBrains Mono">BNSF SILO DOCK (Active)</text>
+      <text x="640" y="62" text-anchor="middle" fill="#5a6a8a" font-size="8" font-family="JetBrains Mono">⬛ Ore jennies → dock pockets → lake vessels</text>
+      <!-- Inactive docks (scenic) -->
+      <rect x="400" y="100" width="200" height="30" rx="3" fill="#1a1a2e" stroke="#3a4a6c" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="500" y="119" text-anchor="middle" fill="#3a4a6c" font-size="8" font-family="JetBrains Mono">Ex-GN Docks (scenic)</text>
+      <rect x="640" y="100" width="160" height="30" rx="3" fill="#1a1a2e" stroke="#3a4a6c" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="720" y="119" text-anchor="middle" fill="#3a4a6c" font-size="8" font-family="JetBrains Mono">Ex-NP Dock (scenic)</text>
+      <!-- Water -->
+      <line x1="400" y1="145" x2="1100" y2="145" stroke="#2a5a8c" stroke-width="2"/>
+      <text x="750" y="165" text-anchor="middle" fill="#2a5a8c" font-size="10" font-family="JetBrains Mono">~~~ Lake Superior ~~~</text>
+      <text x="750" y="180" text-anchor="middle" fill="#2a5a8c" font-size="7" font-family="JetBrains Mono">Ore vessel berths</text>
+      <text x="50" y="210" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3-4 ft × 2 ft &nbsp; ▸ Grade from Proctor if space allows &nbsp; ▸ Inactive docks as scenic flats/backdrops</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Prototype:</strong> BNSF silo dock is the only active pellet-loading facility. Ex-GN and ex-NP docks stand inactive — dramatic scenic elements. Trains descend Proctor Hill under dynamic braking. <strong>Model:</strong> Double track on the approach — loaded ore descends on one track while empties return uphill on the other, allowing simultaneous operations. If space allows, a 2% grade on the approach creates real operating challenge (heavy loaded trains descending, light empties climbing). The inactive docks make excellent backdrop flats — tall concrete structures silhouetted against the lake. Consider modeling a 1000-footer at dock for visual impact.
+    </div>
+  </div>
+
+  <!-- IRON RANGE STAGING -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot staging"></div><div class="tp-name">Iron Range Staging</div><div class="tp-type staging">Off-Layout — below/behind Proctor</div></div>
+    <div class="tp-subtitle">Hidden staging representing Mesabi Range mines. Feeds DM&IR ore trains into Proctor yard.</div>
+    <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+      <text x="600" y="16" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono" text-anchor="middle">↕ Connects to Proctor DM&IR tracks above</text>
+      <line x1="200" y1="40" x2="1000" y2="40" stroke="#888" stroke-width="2" stroke-dasharray="6,3"/>
+      <line x1="200" y1="65" x2="1000" y2="65" stroke="#888" stroke-width="2" stroke-dasharray="6,3"/>
+      <line x1="200" y1="90" x2="1000" y2="90" stroke="#888" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="600" y="36" fill="#888" font-size="8" font-family="JetBrains Mono" text-anchor="middle">Staging 1 — Loaded ore train (ready to depart for Proctor)</text>
+      <text x="600" y="61" fill="#888" font-size="8" font-family="JetBrains Mono" text-anchor="middle">Staging 2 — Empty ore train (returned from docks, ready to "reload")</text>
+      <text x="600" y="86" fill="#888" font-size="8" font-family="JetBrains Mono" text-anchor="middle">Staging 3 — Spare / MOW ballast train</text>
+      <text x="50" y="115" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ 3 staging tracks, each ~4 ft minimum &nbsp; ▸ Can be hidden shelf below Proctor module</text>
+    </svg>
+  </div>
+
+  <!-- RICES POINT REVERSE LOOPS (HIDDEN STAGING) -->
+  <div class="track-plan">
+    <div class="tp-header"><div class="tp-dot staging"></div><div class="tp-name">Rices Point Reverse Loops</div><div class="tp-type staging">Hidden Staging — ~3×3 ft module</div></div>
+    <div class="tp-subtitle">Double reverse loop behind/beneath Rices Point. Turns northbound BNSF arrivals into southbound departures for continuous running.</div>
+    <svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+      <text x="600" y="16" text-anchor="middle" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">↑ To/From Rices Point Yard (east end)</text>
+      <!-- Feed tracks from Rices Point (double main) -->
+      <line x1="500" y1="30" x2="500" y2="60" stroke="#4895ef" stroke-width="3"/>
+      <line x1="700" y1="30" x2="700" y2="60" stroke="#70a8ef" stroke-width="2.5"/>
+      <text x="500" y="55" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">Main 1</text>
+      <text x="700" y="55" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">Main 2</text>
+      <!-- Loop A (outer — unit trains / grain) -->
+      <path d="M 500,60 L 500,80 Q 500,100 480,100 L 180,100 Q 100,100 100,160 Q 100,220 180,220 L 1020,220 Q 1100,220 1100,160 Q 1100,100 1020,100 L 720,100 Q 700,100 700,80 L 700,60" stroke="#4895ef" stroke-width="2.5" fill="none"/>
+      <!-- Auto-reverse indicator A -->
+      <rect x="475" y="68" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="500" y="80" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
+      <!-- Loop B (inner — manifests / intermodal) -->
+      <path d="M 500,60 L 500,80 Q 500,120 470,120 L 220,120 Q 160,120 160,170 Q 160,200 220,200 L 980,200 Q 1040,200 1040,170 Q 1040,120 980,120 L 730,120 Q 700,120 700,80 L 700,60" stroke="#70a8ef" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+      <!-- Auto-reverse indicator B -->
+      <rect x="675" y="68" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="700" y="80" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
+      <!-- Train hold positions -->
+      <rect x="350" y="210" width="140" height="18" rx="3" fill="none" stroke="#4895ef" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="420" y="222" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">🚂 Grain Unit Hold (A)</text>
+      <rect x="680" y="190" width="150" height="18" rx="3" fill="none" stroke="#70a8ef" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="755" y="202" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">🚂 Manifest / Intermod (B)</text>
+      <!-- Labels -->
+      <text x="600" y="160" text-anchor="middle" fill="#7a8bb5" font-size="11" font-weight="700" font-family="JetBrains Mono">HIDDEN STAGING</text>
+      <text x="600" y="175" text-anchor="middle" fill="#5a6a8a" font-size="8" font-family="JetBrains Mono">Double reverse loop — grain + manifest in pipeline</text>
+      <!-- BXP88 block detection markers -->
+      <circle cx="300" cy="220" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="520" cy="220" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="850" cy="200" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="600" cy="100" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <text x="600" y="250" text-anchor="middle" fill="#f4a261" font-size="7" font-family="JetBrains Mono">● = BXP88 detection blocks — JMRI automates train sequencing</text>
+      <!-- Direction arrows -->
+      <text x="260" y="95" fill="#4895ef" font-size="7" font-family="JetBrains Mono">NB arrive →</text>
+      <text x="800" y="95" fill="#4895ef" font-size="7" font-family="JetBrains Mono">→ SB depart</text>
+      <text x="330" y="240" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Loop A: ~5 ft track (holds full grain unit train)</text>
+      <text x="680" y="240" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Loop B: ~4 ft track (holds manifest)</text>
+      <!-- Module size -->
+      <text x="50" y="310" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3×3 ft (hidden beneath/behind Rices Point) &nbsp; ▸ 2 AR1 auto-reversers &nbsp; ▸ BXP88 detection for JMRI sequencing &nbsp; ▸ ~4 turnouts</text>
+    </svg>
+    <div class="tp-notes">
+      <strong>Purpose:</strong> Completes the BNSF mainline circuit. The full cycle is now: Northtown loops → mainline north → Proctor → Rices Point → Rices Point loops → back through Proctor → mainline south → Northtown loops. Every BNSF train runs continuously without dead-ending. <strong>Double loops:</strong> Loop A is sized for grain unit trains (longer hold), Loop B for manifests and intermodal (faster turn). This keeps the two traffic types from blocking each other — a grain unit sitting at an elevator doesn't prevent manifests from cycling through. <strong>Double main payoff:</strong> The double track between Proctor and Rices Point means a grain train entering Loop A and a manifest exiting Loop B can move simultaneously on separate mains. <strong>Detection:</strong> BXP88 blocks in each loop let JMRI track occupancy and automate sequencing. <strong>Wiring:</strong> Each loop feed requires a Digitrax AR1 auto-reverser. Loops connect to Rices Point via the double main. <strong>Construction:</strong> Hidden module — no scenery needed. Can be a shelf below Rices Point benchwork or a separate free-standing unit.
+    </div>
+  </div>
+
+  <!-- TRACK LEGEND -->
+  <div class="track-legend">
+    <h3>Track Plan Legend</h3>
+    <div class="track-legend-grid">
+      <div class="tl-item"><div class="tl-line" style="background:#4895ef"></div> BNSF mainline</div>
+      <div class="tl-item"><div class="tl-line" style="background:#70a8ef"></div> Passing siding / runaround</div>
+      <div class="tl-item"><div class="tl-line" style="background:#e9c46a"></div> DM&IR trackage</div>
+      <div class="tl-item"><div class="tl-line" style="background:#2a9d8f"></div> Branch line</div>
+      <div class="tl-item"><div class="tl-line" style="background:#c9a227"></div> Industry spur</div>
+      <div class="tl-item"><div class="tl-line" style="background:#8899bb"></div> Yard / classification</div>
+      <div class="tl-item"><div class="tl-line" style="background:#888;border-top:2px dashed #888;height:0"></div> Staging (hidden)</div>
+      <div class="tl-item"><div style="width:10px;height:10px;border-radius:50%;background:#f4a261;flex-shrink:0"></div> Power switch</div>
+    </div>
+  </div>
+
+  <div class="tp-notes" style="margin-top:20px">
+    <strong>N Scale module sizing notes:</strong> All dimensions assume Micro Engineering Code 55 track with #6 turnouts (~5.5" per turnout). A 40' freight car ≈ 3" in N scale. Industry spurs sized for 2-4 car spots (6-12"). Sidings compressed from prototype — Cambridge's 8,800' siding becomes roughly 55" (about 4.5 ft) which fits a 4-ft module nicely. Mainline minimum radius should be 15" (19" preferred) for reliable long-train operation. <strong>All turnout counts:</strong> NTW Reverse Loops ~4, Northtown ~22, Cambridge 5, Hinckley 8, Moose Lake 4, Carlton 6, Cloquet 6, Proctor ~20, Rices Point ~8, RP Reverse Loops ~4, Ore Docks 3. <strong>Total: ~90 turnouts across the full layout.</strong>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: CAR TYPES ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>ROLLING STOCK & COMMODITIES BY LOCATION</h1>
+    <div class="page-badge">PAGE 2 — TRAFFIC REFERENCE</div>
+  </div>
+  <div class="subtitle">Car types, industries, and traffic flow for each module</div>
+  <div class="location-grid">
+    <div class="location-card division"><div class="card-header"><div class="card-dot"></div><div class="card-title">Northtown</div><div class="card-type">Division Point</div></div><div class="card-desc">All car types — classification &amp; through traffic. Unit trains pass through (coal, taconite, potash, grain).</div><div class="car-list"><div class="car-tag">🚃 Covered Hoppers</div><div class="car-tag">🔲 Open Hoppers</div><div class="car-tag">🛢️ Tank Cars</div><div class="car-tag">📦 Boxcars</div><div class="car-tag">⬜ Centerbeams</div><div class="car-tag">🔩 Gondolas</div><div class="car-tag">📐 Flatcars</div><div class="car-tag">📦 Intermodal</div><div class="car-tag">⬛ Ore Jennies (empties)</div></div></div>
+    <div class="location-card town"><div class="card-header"><div class="card-dot"></div><div class="card-title">Cambridge</div><div class="card-type">Town</div></div><div class="card-desc">Hinckley Local — first stop. Propane dealer, feed mill, lumber yard, team track.</div><div class="car-list"><div class="car-tag">🛢️ Tank (propane)</div><div class="car-tag">🚃 Hoppers (feed/grain)</div><div class="car-tag">⬜ Centerbeams (lumber)</div><div class="car-tag">📦 Boxcars</div></div></div>
+    <div class="location-card town"><div class="card-header"><div class="card-dot"></div><div class="card-title">Hinckley</div><div class="card-type">Town</div></div><div class="card-desc">Hinckley Local — second stop. Fuel dealer, chemical processor, frac sand, building supply, SCXY.</div><div class="car-list"><div class="car-tag">🛢️ Tank (propane)</div><div class="car-tag">🚃 Hoppers (chemicals/sand)</div><div class="car-tag">⬜ Centerbeams</div><div class="car-tag">📦 Boxcars</div></div></div>
+    <div class="location-card town"><div class="card-header"><div class="card-dot"></div><div class="card-title">Moose Lake</div><div class="card-type">Town</div></div><div class="card-desc">Small town. LP gas dealer, farm supply. Set-outs from through manifest.</div><div class="car-list"><div class="car-tag">🛢️ Tank (LP gas)</div><div class="car-tag">🚃 Hoppers (feed/fert)</div><div class="car-tag">📦 Boxcars</div></div></div>
+    <div class="location-card junction"><div class="card-header"><div class="card-dot"></div><div class="card-title">Carlton</div><div class="card-type">Junction</div></div><div class="card-desc">Branch junction. Cloquet block staged here. Fuel dealer, team track.</div><div class="car-list"><div class="car-tag">📦 Boxcars (Sappi)</div><div class="car-tag">🔩 Gondolas (chips)</div><div class="car-tag">🛢️ Tank (chemicals)</div><div class="car-tag">🚃 Hoppers (clay)</div></div></div>
+    <div class="location-card branch"><div class="card-header"><div class="card-dot"></div><div class="card-title">Cloquet</div><div class="card-type">Branch</div></div><div class="card-desc">Sappi paper mill / CTRR. Heaviest single shipper.</div><div class="car-list"><div class="car-tag">🔩 Gons (wood chips in)</div><div class="car-tag">🛢️ Tanks (chemicals in)</div><div class="car-tag">🚃 Hoppers (clay in)</div><div class="car-tag">📦 Boxcars (paper out)</div></div></div>
+    <div class="location-card junction"><div class="card-header"><div class="card-dot"></div><div class="card-title">Proctor</div><div class="card-type">Junction Yard</div></div><div class="card-desc">BNSF + DM&IR classification. Ore sorting, all-rail interchange, manifest.</div><div class="car-list"><div class="car-tag">⬛ Ore Jennies</div><div class="car-tag">📦 All manifest types</div><div class="car-tag">🔲 Coal (staged)</div><div class="car-tag">🚃 Grain (staged)</div></div></div>
+    <div class="location-card division"><div class="card-header"><div class="card-dot"></div><div class="card-title">Rices Point</div><div class="card-type">BNSF Duluth</div></div><div class="card-desc">Grain elevators (Gen Mills, Cargill, AGP), port traffic, 4-RR interchange.</div><div class="car-list"><div class="car-tag">🚃 Hoppers (grain)</div><div class="car-tag">📐 Flats (wind/port)</div><div class="car-tag">📦 Intermodal</div><div class="car-tag">🔲 Hoppers (salt)</div></div></div>
+    <div class="location-card terminal full-width"><div class="card-header"><div class="card-dot"></div><div class="card-title">DM&IR Ore Docks + Iron Range Staging</div><div class="card-type">Terminal / Staging</div></div><div class="card-desc">Loaded taconite from Proctor → dock pockets → lake vessels. Empties cycle back. BNSF silo dock active; ex-GN/NP docks scenic.</div><div class="car-list"><div class="car-tag">⬛ Ore Jennies (loaded/empty)</div><div class="car-tag">🔲 Ballast (MOW occasional)</div></div></div>
+  </div>
+  <div class="car-legend"><h3>Rolling Stock Quick Reference</h3>
+    <div class="car-legend-grid">
+      <div class="car-legend-item"><div class="car-icon">🚃</div><div><span class="car-name">Covered Hopper</span> — grain, cement, potash, clay</div></div>
+      <div class="car-legend-item"><div class="car-icon">🔲</div><div><span class="car-name">Open Hopper</span> — coal, ballast, salt</div></div>
+      <div class="car-legend-item"><div class="car-icon">⬛</div><div><span class="car-name">Ore Jenny</span> — taconite (DM&IR)</div></div>
+      <div class="car-legend-item"><div class="car-icon">🛢️</div><div><span class="car-name">Tank Car</span> — chemicals, fuel, LPG</div></div>
+      <div class="car-legend-item"><div class="car-icon">📦</div><div><span class="car-name">Boxcar</span> — paper, merchandise</div></div>
+      <div class="car-legend-item"><div class="car-icon">⬜</div><div><span class="car-name">Centerbeam</span> — lumber, plywood</div></div>
+      <div class="car-legend-item"><div class="car-icon">🔩</div><div><span class="car-name">Gondola</span> — steel, scrap, chips</div></div>
+      <div class="car-legend-item"><div class="car-icon">📐</div><div><span class="car-name">Flatcar</span> — machinery, wind components</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: OPERATIONS ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>TYPICAL OPERATING SESSION</h1>
+    <div class="page-badge">PAGE 3 — OPERATIONS GUIDE</div>
+  </div>
+  <div class="subtitle">How trains move across the layout — six operator jobs, continuous BNSF circuit with reverse loops at both ends</div>
+  <div class="ops-flow">
+    <div class="train-card freight"><div class="train-header"><div class="train-icon">🚂</div><div class="train-name">H-NTWSUP — Northbound Manifest</div><div class="train-badge">BNSF THROUGH FREIGHT</div></div><div class="train-subtitle">NTW Loops → Northtown → mainline → Moose Lake → Carlton → Proctor → Rices Point → RP Loops &nbsp;|&nbsp; Continuous circuit — emerges from RP Loops as southbound symbol.</div><div class="consist-note"><strong>Consist:</strong> 2-3 road units (SD70ACe, ES44AC, ET44AC) + 15-25 cars, blocked: Moose Lake → Carlton/Cloquet → Proctor → Rices Point. <strong>Continuous running:</strong> After terminating at Rices Point, train enters reverse loop and re-emerges southbound as a new symbol (e.g., H-SUPNTW) with fresh car cards. JMRI automates loop sequencing via BXP88 detection.</div></div>
+
+    <div class="train-card local"><div class="train-header"><div class="train-icon">🔧</div><div class="train-name">Hinckley Local — Town Switcher</div><div class="train-badge">BNSF LOCAL — M/W/F</div></div><div class="train-subtitle">Northtown → Cambridge → Hinckley → return &nbsp;|&nbsp; Spot &amp; pull at local industries. Best switching job.</div><div class="consist-note"><strong>Consist:</strong> 1-2 GP38-2 / SD40-2 + 6-12 cars. Lots of run-around moves and industry spots.</div></div>
+
+    <div class="train-card local"><div class="train-header"><div class="train-icon">🔧</div><div class="train-name">Cloquet Branch Local — Paper Mill Run</div><div class="train-badge">BNSF BRANCH LOCAL</div></div><div class="train-subtitle">Carlton → Cloquet (Sappi Mill) → return &nbsp;|&nbsp; Picks up manifest's Cloquet block. CTRR interchange.</div><div class="consist-note"><strong>Consist:</strong> 1 GP38-2 + 8-15 cars. Heaviest single-shipper volume.</div></div>
+
+    <div class="train-card ore"><div class="train-header"><div class="train-icon">⛏️</div><div class="train-name">DM&IR Ore Train — Taconite Run</div><div class="train-badge">DM&IR ORE SERVICE</div></div><div class="train-subtitle">Iron Range staging → Proctor classification → turn power on turntable → Proctor Hill descent → ore docks. Empties cycle back.</div><div class="consist-note"><strong>Consist:</strong> 3 SD70ACe/SD40-3 + 15-20 ore jennies (N scale). Dramatic hill descent under dynamic braking. Power fueled/sanded at engine service, turned on turntable between runs.</div></div>
+
+    <div class="train-card unit"><div class="train-header"><div class="train-icon">🔶</div><div class="train-name">Unit Trains — Coal, Grain, Potash</div><div class="train-badge">BNSF UNIT TRAINS</div></div><div class="train-subtitle">Full circuit via reverse loops. Grain → Rices Pt elevators. Coal/potash through. Creates meet/pass conflicts on single-track mainline.</div><div class="consist-note"><strong>Consist:</strong> 2 units + DPU + 20-30 identical cars. UP &amp; CPKC trackage rights trains add foreign power variety. <strong>Continuous running:</strong> Unit trains use the bypass track at Northtown (never enter the bowl) and the double main between Proctor and Rices Point. A grain unit can enter the RP Loop while a manifest exits simultaneously on the second main.</div></div>
+
+    <div class="train-card passenger"><div class="train-header"><div class="train-icon">🚄</div><div class="train-name">Amtrak — Chicago to Duluth</div><div class="train-badge">PASSENGER</div></div>
+      <div class="two-col-flow">
+        <div><div class="traffic-label" style="color:#e63946;margin-bottom:8px">Option A: North Star (1978–1985)</div><div class="consist-note"><strong>Route:</strong> Chicago → St. Paul → Cambridge → Duluth (13 hrs). Cambridge and Sandstone only intermediate stops by end of service.<br><strong>Consist:</strong> F40PH + baggage + 2-3 Amfleet coaches + Amcafe</div></div>
+        <div><div class="traffic-label" style="color:#e63946;margin-bottom:8px">Option B: Northern Lights Express (Proposed)</div><div class="consist-note"><strong>Route:</strong> Minneapolis → Cambridge → Hinckley → Superior → Duluth (~2.5 hrs). 4 daily round trips, 90 mph top speed.<br><strong>Consist:</strong> Siemens Charger + 3-4 Venture coaches. $195M appropriated 2023.</div></div>
+      </div>
+      <div class="consist-note" style="margin-top:12px"><strong>Operations impact:</strong> Passenger trains have priority — freights duck into sidings at Cambridge, Hinckley, or Moose Lake to clear. Creates realistic meet/pass conflicts every session.</div>
+    </div>
+  </div>
+
+  <div class="ops-note">
+    <strong>Continuous Running — How the Circuit Works:</strong><br><br>
+    The BNSF mainline is a complete loop: <strong>NTW Loops → Northtown → Cambridge → Hinckley → Moose Lake → Carlton → Proctor → Rices Point → RP Loops</strong> and back. Southbound departures from Northtown enter the NTW reverse loops and re-emerge as new northbound arrivals. Northbound trains reaching Rices Point enter the RP reverse loops and re-emerge southbound. No train ever dead-ends — the dispatcher always has traffic in the pipeline. JMRI uses BXP88 block detection in both loop modules to automate sequencing: when a loop clears, the next train is released. Each loop module holds two trains simultaneously (one per loop), so up to four BNSF trains can be staging at any given moment across both ends.<br><br>
+    The DM&IR stays point-to-point: Iron Range staging → Proctor → Ore Docks, with empties cycling back. This is prototypically correct — ore trains shuttle, they don't loop. The turntable at Proctor handles locomotive turning between runs.<br><br>
+
+    <strong>Typical 2-3 hour session:</strong><br><br>
+    <em>1.</em> NB manifest emerges from NTW Loops into Northtown receiving — yardmaster classifies, builds outbound train<br>
+    <em>2.</em> Built manifest departs on departure staging, heads north — works Moose Lake &amp; Carlton setouts<br>
+    <em>3.</em> Hinckley Local departs Northtown, switches Cambridge and Hinckley industries (best operator job)<br>
+    <em>4.</em> Cloquet Branch Local runs paper mill cars Carlton ↔ Sappi<br>
+    <em>5.</em> DM&IR ore train: Iron Range staging → Proctor classification → turn power on turntable → Proctor Hill descent → ore docks<br>
+    <em>6.</em> NB manifest arrives Proctor, classifies BNSF/DM&IR split, continues to Rices Point on double main<br>
+    <em>7.</em> Manifest enters RP Loop — re-emerges southbound as new symbol with fresh car cards<br>
+    <em>8.</em> SB manifest works back through Proctor → Carlton → Moose Lake → Northtown → NTW Loop → cycle repeats<br>
+    <em>9.</em> Amtrak threads through — everyone ducks into sidings (priority traffic)<br>
+    <em>10.</em> Grain unit train runs full circuit via bypass track at Northtown and double main at Proctor — never enters a yard<br>
+    <em>11.</em> UP or CPKC trackage rights train adds foreign power variety<br><br>
+    <strong>Operator positions (2-6 people):</strong> Dispatcher (controls meets, loop sequencing via JMRI), Northtown yardmaster (classification, blocking, departures), Hinckley Local engineer (best switching job), Cloquet Branch engineer (Sappi mill), DM&IR engineer (ore runs, turntable), Rices Pt/Proctor switcher (elevator spots, interchange)
+  </div>
+</div>
+
+<!-- ==================== PAGE 4: BUILD PLAN ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>MODULE BUILD PLAN</h1>
+    <div class="page-badge">PAGE 4 — CONSTRUCTION SEQUENCE</div>
+  </div>
+  <div class="subtitle">Build simple modules first, work up to complex. All benchwork and track completed before scenery begins.</div>
+
+  <!-- BUILD PHILOSOPHY -->
+  <div class="tp-notes" style="margin-bottom:24px">
+    <strong>Build philosophy:</strong> Start with Carlton — a straightforward junction module that teaches benchwork framing, track laying, turnout installation, and basic DCC wiring before tackling complex yards. Each module follows the same construction sequence: frame → roadbed → track → test → wire. Once ALL modules are built, connected, and trains run reliably end-to-end, then scenery, structures, and detail work begin as a separate phase. This keeps you running trains as early as possible and avoids tearing up finished scenery to fix track problems.
+  </div>
+
+  <!-- MODULE BUILD ORDER -->
+  <div class="ops-flow">
+
+    <!-- MODULE 1: CARLTON -->
+    <div class="train-card local">
+      <div class="train-header">
+        <div class="train-icon">1️⃣</div>
+        <div class="train-name">Carlton — Starter Module</div>
+        <div class="train-badge">SIMPLE JUNCTION</div>
+      </div>
+      <div class="train-subtitle">~4-5 ft × 2 ft &nbsp;|&nbsp; ~6 turnouts &nbsp;|&nbsp; Your first benchwork, first track, first DCC test</div>
+      <div class="consist-note">
+        <strong>Why start here:</strong> Simple mainline + passing siding + branch junction turnout. Just enough complexity to learn turnout installation and wiring without being overwhelmed. You'll have a working run-through with a branch diverge when done — satisfying even before other modules exist.<br><br>
+        <strong>Skills learned:</strong> Benchwork framing, cork roadbed, ME Code 55 flex track, #6 turnout installation, DCC bus wiring, Cobalt iP motor mounting, basic test running
+      </div>
+    </div>
+
+    <!-- MODULE 2: CAMBRIDGE -->
+    <div class="train-card local">
+      <div class="train-header">
+        <div class="train-icon">2️⃣</div>
+        <div class="train-name">Cambridge — First Town</div>
+        <div class="train-badge">SIMPLE TOWN</div>
+      </div>
+      <div class="train-subtitle">~3-4 ft × 2 ft &nbsp;|&nbsp; 5 turnouts &nbsp;|&nbsp; Passing siding + industry spurs</div>
+      <div class="consist-note">
+        <strong>Why second:</strong> Adds industry spurs branching off the siding — first experience with spur geometry and car spotting. Connect to Carlton for your first two-module mainline run. Now you can practice switching moves: pull from siding, run around, spot at industry.<br><br>
+        <strong>Skills learned:</strong> Spur track geometry, car spotting clearances, module-to-module track alignment, first operational switching
+      </div>
+    </div>
+
+    <!-- MODULE 3: MOOSE LAKE -->
+    <div class="train-card local">
+      <div class="train-header">
+        <div class="train-icon">3️⃣</div>
+        <div class="train-name">Moose Lake — Fill Section</div>
+        <div class="train-badge">SIMPLEST MODULE</div>
+      </div>
+      <div class="train-subtitle">~2-3 ft × 2 ft &nbsp;|&nbsp; 4 turnouts &nbsp;|&nbsp; Short siding + 1-2 car spots</div>
+      <div class="consist-note">
+        <strong>Why third:</strong> The simplest module on the layout. Quick build, fast confidence boost. Now you have three connected modules and enough mainline length for realistic train meets — two trains can pass each other for the first time.<br><br>
+        <strong>Skills learned:</strong> Speed and efficiency — apply lessons from first two builds. Module interconnection confidence.
+      </div>
+    </div>
+
+    <!-- MODULE 4: HINCKLEY -->
+    <div class="train-card local">
+      <div class="train-header">
+        <div class="train-icon">4️⃣</div>
+        <div class="train-name">Hinckley — Busiest Town</div>
+        <div class="train-badge">MODERATE TOWN</div>
+      </div>
+      <div class="train-subtitle">~4-5 ft × 2 ft &nbsp;|&nbsp; 8 turnouts &nbsp;|&nbsp; Passing siding + 4 industry spurs + SCXY interchange</div>
+      <div class="consist-note">
+        <strong>Why fourth:</strong> More turnouts and spurs than Cambridge — step up in complexity. The SCXY interchange spur adds a staging track connection. With four modules connected (Cambridge → Hinckley → Moose Lake → Carlton), you can now run a full Hinckley Local switching session.<br><br>
+        <strong>Skills learned:</strong> Higher turnout density, multiple spur arrangements, first experience with a full switching job
+      </div>
+    </div>
+
+    <!-- MODULE 5: CLOQUET -->
+    <div class="train-card local">
+      <div class="train-header">
+        <div class="train-icon">5️⃣</div>
+        <div class="train-name">Cloquet / Sappi Mill — Branch Terminus</div>
+        <div class="train-badge">BRANCH TERMINAL</div>
+      </div>
+      <div class="train-subtitle">~3-4 ft × 2 ft &nbsp;|&nbsp; 6 turnouts &nbsp;|&nbsp; 3 mill tracks + runaround</div>
+      <div class="consist-note">
+        <strong>Why fifth:</strong> Connects to Carlton's branch junction. Now you have the complete mid-layout: mainline towns plus the Cloquet branch. Two full operator jobs are available — Hinckley Local and Cloquet Branch Local. This is enough layout to host a satisfying 2-person operating session.<br><br>
+        <strong>Skills learned:</strong> Branch line diverging geometry, tight industrial trackwork, runaround operation
+      </div>
+    </div>
+
+    <!-- MODULE 6: NORTHTOWN -->
+    <div class="train-card freight">
+      <div class="train-header">
+        <div class="train-icon">6️⃣</div>
+        <div class="train-name">Northtown — Major Yard</div>
+        <div class="train-badge">COMPLEX YARD</div>
+      </div>
+      <div class="train-subtitle">~7-9 ft × 2 ft &nbsp;|&nbsp; ~22 turnouts &nbsp;|&nbsp; Receiving + 8-track bowl + departure + bypass + caboose + engine service</div>
+      <div class="consist-note">
+        <strong>Why sixth:</strong> This is the big one. By now you've built 5 modules and installed ~29 turnouts — you know your tools, your techniques, and your tolerances. Northtown's 22 turnouts in a tight yard ladder demand precision, and the bypass track and departure staging add wiring complexity. Take your time on the yard throat geometry.<br><br>
+        <strong>Skills learned:</strong> Yard ladder geometry, tight turnout spacing, multiple bus feeds for long modules, departure lead routing, bypass track crossovers<br><br>
+        <strong>Milestone:</strong> With Northtown connected, the full BNSF mainline from Northtown → Carlton is operational. Through freights, Hinckley Local, and Cloquet Branch are all runnable. Three operator jobs available.
+      </div>
+    </div>
+
+    <!-- MODULE 7: NTW LOOPS -->
+    <div class="train-card freight">
+      <div class="train-header">
+        <div class="train-icon">7️⃣</div>
+        <div class="train-name">Northtown Reverse Loops — Hidden Staging</div>
+        <div class="train-badge">HIDDEN MODULE</div>
+      </div>
+      <div class="train-subtitle">~3×3 ft &nbsp;|&nbsp; ~4 turnouts &nbsp;|&nbsp; Double reverse loop + AR1 auto-reversers + BXP88 detection</div>
+      <div class="consist-note">
+        <strong>Why seventh:</strong> Build this right after Northtown while the wiring is fresh. No scenery needed — just reliable trackwork, auto-reversing, and detection. This is your first experience with AR1 wiring and BXP88 block detection, both of which you'll need again for the Rices Point loops.<br><br>
+        <strong>Skills learned:</strong> AR1 auto-reverser installation, BXP88 block detection wiring, JMRI integration for loop automation, hidden trackwork (no scenery = focus on reliability)<br><br>
+        <strong>Milestone:</strong> Continuous running on the south end! Trains depart Northtown, enter the loops, and re-emerge as new arrivals.
+      </div>
+    </div>
+
+    <!-- MODULE 8: PROCTOR -->
+    <div class="train-card ore">
+      <div class="train-header">
+        <div class="train-icon">8️⃣</div>
+        <div class="train-name">Proctor — Two-Railroad Junction Yard</div>
+        <div class="train-badge">MOST COMPLEX</div>
+      </div>
+      <div class="train-subtitle">~7-9 ft × 2.5 ft &nbsp;|&nbsp; ~20 turnouts &nbsp;|&nbsp; 3 BNSF + 4 DM&IR + interchange + turntable + caboose</div>
+      <div class="consist-note">
+        <strong>Why eighth:</strong> The most complex module — two separate railroads, an interchange crossover, a working turntable, and the start of double-track territory. The turntable requires its own sub-assembly (indexing mechanism, approach track alignment). Build the BNSF side first, test running, then add DM&IR tracks and the interchange.<br><br>
+        <strong>Skills learned:</strong> Turntable installation and indexing, two-railroad wiring (separate DCC addresses), interchange crossover geometry, double main track transitions<br><br>
+        <strong>Milestone:</strong> The entire BNSF mainline from NTW Loops → Northtown → Carlton → Proctor is now connected. DM&IR operations begin. Five operator jobs available.
+      </div>
+    </div>
+
+    <!-- MODULE 9: RICES POINT -->
+    <div class="train-card freight">
+      <div class="train-header">
+        <div class="train-icon">9️⃣</div>
+        <div class="train-name">Rices Point — BNSF Terminal Yard</div>
+        <div class="train-badge">TERMINAL YARD</div>
+      </div>
+      <div class="train-subtitle">~4-6 ft × 2 ft &nbsp;|&nbsp; ~8 turnouts &nbsp;|&nbsp; 4 yard tracks + elevator complex + double main arrival + through leads to loops</div>
+      <div class="consist-note">
+        <strong>Why ninth:</strong> By now you're an experienced builder. Rices Point is a straightforward placement yard — less complex than Northtown or Proctor. The double main arrival from Proctor and through leads to the reverse loops are the key alignment challenges.<br><br>
+        <strong>Skills learned:</strong> Terminal yard geometry, through-lead routing past yard for loop connection, double main merging
+      </div>
+    </div>
+
+    <!-- MODULE 10: RP LOOPS -->
+    <div class="train-card freight">
+      <div class="train-header">
+        <div class="train-icon">🔟</div>
+        <div class="train-name">Rices Point Reverse Loops — Hidden Staging</div>
+        <div class="train-badge">HIDDEN MODULE</div>
+      </div>
+      <div class="train-subtitle">~3×3 ft &nbsp;|&nbsp; ~4 turnouts &nbsp;|&nbsp; Double reverse loop + AR1 auto-reversers + BXP88 detection</div>
+      <div class="consist-note">
+        <strong>Why tenth:</strong> Same build as NTW Loops — you've done this before. Faster build, proven techniques.<br><br>
+        <strong>Milestone: 🎉 FULL BNSF CIRCUIT COMPLETE.</strong> Trains run continuously: NTW Loops → Northtown → mainline → Proctor → double main → Rices Point → RP Loops → back. All six operator jobs available. You can host full operating sessions.
+      </div>
+    </div>
+
+    <!-- MODULE 11: ORE DOCKS -->
+    <div class="train-card ore">
+      <div class="train-header">
+        <div class="train-icon">1️⃣1️⃣</div>
+        <div class="train-name">DM&IR Ore Docks — Lake Superior Terminal</div>
+        <div class="train-badge">DM&IR TERMINAL</div>
+      </div>
+      <div class="train-subtitle">~3-4 ft × 2 ft &nbsp;|&nbsp; 3 turnouts &nbsp;|&nbsp; Dock track + approach + scenic docks</div>
+      <div class="consist-note">
+        <strong>Why eleventh:</strong> Completes the DM&IR ore operation. The 2.2% grade approach from Proctor is the key construction challenge — consistent grade over the full approach track. Simple trackwork but dramatic visual impact.<br><br>
+        <strong>Skills learned:</strong> Grade construction (consistent 2.2% over approach), dock track alignment
+      </div>
+    </div>
+
+    <!-- MODULE 12: IRON RANGE STAGING -->
+    <div class="train-card ore">
+      <div class="train-header">
+        <div class="train-icon">1️⃣2️⃣</div>
+        <div class="train-name">Iron Range Staging — Hidden</div>
+        <div class="train-badge">DM&IR STAGING</div>
+      </div>
+      <div class="train-subtitle">Below/behind Proctor &nbsp;|&nbsp; 3 staging tracks &nbsp;|&nbsp; Feeds DM&IR ore trains</div>
+      <div class="consist-note">
+        <strong>Why last:</strong> Simple hidden staging — three parallel tracks, no turnout complexity. Can be a shelf below the Proctor module. Build last because DM&IR operations work fine using the Proctor yard tracks as temporary staging until this module is ready.<br><br>
+        <strong>Milestone: LAYOUT COMPLETE (trackwork phase).</strong> All 12 modules built, all ~90 turnouts installed, all track connected. End-to-end testing complete. Ready for Phase 2.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONSTRUCTION PHASES -->
+  <div style="margin-top:32px; padding-top:24px; border-top: 1px solid #2a3a5c;">
+    <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin-bottom:16px; letter-spacing:1px;">CONSTRUCTION PHASES — PER MODULE</h3>
+    <div class="tp-notes" style="margin-bottom:16px">
+      <strong>Every module follows this sequence. Do NOT skip ahead to scenery.</strong>
+    </div>
+    <div class="ops-flow" style="gap:12px">
+
+      <div class="train-card freight" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">🪵</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 1 — Benchwork Frame</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              1×3 or 1×4 lumber frame. Plywood or foam top (1/2" plywood for yard modules, 2" extruded foam for scenicked sections). L-girder or open-grid — your preference. Level the top surface carefully. Install module interconnect bolts/clamps at each end. Legs or wall-mount brackets.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">📐</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 2 — Roadbed & Subroadbed</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Transfer track plan to benchwork surface using AnyRail printouts at 1:1 scale. Mark centerlines. Glue cork roadbed (N scale, split — Midwest Products or similar). Mainline gets full cork; sidings and spurs can go directly on foam. Let cork cure overnight before track.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">🛤️</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 3 — Track Laying</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Start with mainline flex track, then turnouts, then sidings and spurs. ME Code 55 flex needs careful rail joining — use a rail joiner tool and solder every other joint for electrical reliability. Set turnouts in place, test throw clearance before gluing. Leave expansion gaps at module boundaries (~1/16"). Minimum radius 15" (19" preferred) on mainline curves. Test rolling stock through every turnout and curve before moving on.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">🔌</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 4 — DCC Bus Wiring</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Run 12-14 AWG DCC bus under the benchwork, full length of each module. Drop feeders (22-24 AWG) to rail every 3-4 feet. Solder feeders to rail bottoms — alternate sides to avoid shorts. LocoNet cable daisy-chained between modules. Test with a loco before installing any accessories. Bus jumpers between modules at interconnect points.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">🔀</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 5 — Turnout Motors & Control</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Mount Cobalt iP Analog motors under each turnout. Wire throw rod, frog polarity switch, and position feedback leads. Connect to DS64 stationary decoders (4 turnouts per decoder — ~23 decoders total for 90 turnouts). Install local pushbutton control at each turnout location. Test every turnout for reliable throw in both directions. Set DCC addresses in sequence per module.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card freight" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">✅</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 6 — Test Running & Debug</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Run a locomotive through every route on the module — mainline, sidings, spurs, runarounds. Roll freight cars through every turnout checking for derailments. Test turnout throws from both local pushbuttons and DCC throttle. Check for dead spots (bad solder joints, missing feeders). Fix everything before moving to next module. This is the most important step.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- POST-TRACKWORK PHASES -->
+  <div style="margin-top:32px; padding-top:24px; border-top: 1px solid #2a3a5c;">
+    <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin-bottom:16px; letter-spacing:1px;">AFTER ALL MODULES ARE BUILT & CONNECTED</h3>
+    <div class="ops-flow" style="gap:12px">
+
+      <div class="train-card ore" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">📡</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Phase 2 — Block Detection & Signals</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Install BXP88 occupancy detectors across all blocks. Wire SE74 signal decoders. Install signal heads at sidings, yard throats, and junctions. Configure JMRI for signal logic — aspects respond to turnout positions and block occupancy. Test detection with cars and locos on every block. This is when JMRI becomes the layout's brain.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">🌲</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Phase 3 — Scenery & Terrain</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Terrain contours (plaster cloth or foam carving). Ground cover, ballast, and static grass. Backdrop painting or photo backdrops. Northern Minnesota character: birch/aspen forests, pine stands, marshes, farm clearings. Proctor Hill gets the most dramatic terrain — 600' drop in the prototype. Rices Point and Ore Docks get waterfront treatment (Lake Superior / Duluth Harbor).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">🏗️</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Phase 4 — Structures & Industries</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Depot buildings (Carlton, Cambridge, Hinckley). Industrial structures (Sappi mill, grain elevators, propane dealers, fuel depots). Proctor roundhouse and engine service facilities. Ore docks — the visual centerpiece (tall concrete structures, scenic flats for inactive docks). 3D print custom detail parts where needed. Yard towers, switch stands, signs.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-card passenger" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="font-size:16px;width:28px;text-align:center;flex-shrink:0">✨</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#f0f0f0">Phase 5 — Details & Finishing</div>
+            <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
+              Vehicles, figures, junk piles, weeds. Track weathering (rail paint, tie staining). Lighting — structure interiors, yard floods, signal LEDs. Caboose Industries ground throws for manual switch stands on hand-throw sidings. Final JMRI tuning — car cards, waybills, dispatcher panels. This phase never really ends — and that's the fun of it.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: LOCOMOTIVE & ROLLING STOCK ROSTER ==================== -->
+<div class="container">
+  <div class="page-header">
+    <h1>LOCOMOTIVE & ROLLING STOCK ROSTER</h1>
+    <div class="page-badge">PAGE 5 — PURCHASING GUIDE</div>
+  </div>
+  <div class="subtitle">Recommended N scale models for the BNSF Hinckley Sub / DM&IR layout — DCC sound equipped where available</div>
+
+  <!-- LOCOMOTIVES -->
+  <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin:24px 0 16px; letter-spacing:1px;">LOCOMOTIVES</h3>
+
+  <!-- BNSF ROAD POWER -->
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot division"></div><div class="tp-name">BNSF Road Power</div><div class="tp-type division">Manifest & Unit Trains</div></div>
+    <div class="tp-notes">
+      <strong>Primary road fleet — 4-6 units minimum to cover manifests, unit trains, and through freights:</strong>
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">GE ES44AC</div>
+        <div class="car-detail">BNSF Heritage III (orange/black wedge). Kato, ScaleTrains, or Athearn. The modern workhorse — you'll want 2-3 of these.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">GE ET44AC (Tier 4 GEVO)</div>
+        <div class="car-detail">BNSF Heritage III. ScaleTrains Rivet Counter. Latest generation — 1-2 for variety.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SD70ACe</div>
+        <div class="car-detail">BNSF Heritage II or III. Kato, Intermountain, or ScaleTrains. 1-2 units — great lead unit for manifests.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">GE C44-9W (Dash 9)</div>
+        <div class="car-detail">BNSF Heritage I or II (warbonnet or H2 swoosh). Kato. Older but still common on the Hinckley Sub — good lash-up variety.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SD70MAC</div>
+        <div class="car-detail">BNSF Heritage I (green warbonnet). Intermountain or Athearn. Coal/unit train power, DPU candidate.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BNSF LOCAL POWER -->
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">BNSF Local Power</div><div class="tp-type town">Hinckley Local & Branch</div></div>
+    <div class="tp-notes">
+      <strong>Older four-axle and six-axle units for local and branch work — 2-3 units:</strong>
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD GP38-2</div>
+        <div class="car-detail">BNSF (patched BN green or Heritage). Atlas or Kato. Classic local/branch power — the Hinckley Local's likely ride. 1-2 units.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SD40-2</div>
+        <div class="car-detail">BNSF or patched BN. Intermountain or Kato. Versatile — works locals, branches, even helpers. 1 unit.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD GP39-2 / GP39M</div>
+        <div class="car-detail">BNSF rebuilt. Atlas. Optional variety for branch work.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BNSF YARD SWITCHER -->
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">BNSF Yard Switchers</div><div class="tp-type town">Rices Point & Northtown</div></div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SW1200 / SW1500</div>
+        <div class="car-detail">BNSF or BN blue. Atlas. Rices Point elevator switcher — slow, reliable, never leaves the yard. 1 unit.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD MP15DC</div>
+        <div class="car-detail">BNSF. Atlas. Alternative yard switcher. 1 unit optional.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DM&IR POWER -->
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot junction"></div><div class="tp-name">DM&IR / CN Ore Power</div><div class="tp-type junction">Ore Trains & Proctor Yard</div></div>
+    <div class="tp-notes">
+      <strong>DM&IR merged into CN in 2004. Depending on your era, these will carry DM&IR maroon, CN wet-noodle, or mixed paint:</strong>
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SD40-3 (rebuilt SD40-2)</div>
+        <div class="car-detail">DM&IR maroon or CN. Intermountain SD40-2 base with detail mods. The DM&IR workhorse — 2-3 units for ore train consist.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SD70ACe</div>
+        <div class="car-detail">CN paint (post-2004). ScaleTrains or Intermountain. Modern ore train power — 1-2 units.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">EMD SD9 / SD18</div>
+        <div class="car-detail">DM&IR maroon. Kato SD9 or Atlas. Heritage/switching power around Proctor — great turntable candidates. 1 unit.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOREIGN ROAD POWER (TRACKAGE RIGHTS) -->
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot staging"></div><div class="tp-name">Foreign Road Power — Trackage Rights</div><div class="tp-type staging">UP / CPKC / Amtrak</div></div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">UP — GE ES44AC or EMD SD70M</div>
+        <div class="car-detail">UP Armour Yellow. Kato or ScaleTrains. 1-2 units — great visual contrast against BNSF orange.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">CPKC — GE ES44AC or AC4400CW</div>
+        <div class="car-detail">CP red/maroon or new CPKC scheme. Kato or Intermountain. 1 unit — adds foreign power diversity.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">Amtrak — EMD F40PH</div>
+        <div class="car-detail">Amtrak Phase III or IV. Kato. For North Star service (1978-1985 era). 1 unit.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">Amtrak — Siemens Charger SC-44</div>
+        <div class="car-detail">Amtrak Phase VI. Kato (when available) or Bachmann. For Northern Lights Express. 1 unit.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCOMOTIVE SUMMARY -->
+  <div class="tp-notes" style="margin-top:16px;margin-bottom:32px">
+    <strong>Minimum starter fleet:</strong> ~15-18 locomotives. 4-6 BNSF road units, 2-3 BNSF locals, 1 yard switcher, 3-4 DM&IR ore units, 1-2 foreign road (UP/CPKC), 1 Amtrak. <strong>Expand from there</strong> as you acquire — variety in lash-ups is one of the great pleasures of modern railroading. Mix manufacturers for different sounds if using DCC sound decoders.
+  </div>
+
+  <!-- FREIGHT CARS -->
+  <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin:24px 0 16px; letter-spacing:1px; padding-top:24px; border-top:1px solid #2a3a5c;">FREIGHT CARS</h3>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot division"></div><div class="tp-name">Covered Hoppers — Grain</div><div class="tp-type division">Heaviest Car Type</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Northtown (unit trains), Rices Point (elevators), through trains. <strong>Volume:</strong> 20-30 cars minimum for a grain unit train + spares.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">Trinity 5161 / ACF 5250 3-bay covered hopper</div>
+        <div class="car-detail">BNSF, GBRX, ADM, Cargill, General Mills, CRGX reporting marks. Intermountain, Atlas, ExactRail. Mix roadnames for realism — no railroad owns all its grain cars.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">PS-2 2-bay covered hopper (smaller)</div>
+        <div class="car-detail">Various roadnames. For feed/grain to Cambridge, Moose Lake — older, shorter cars suit small-town spurs.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot junction"></div><div class="tp-name">Ore Jennies — Taconite</div><div class="tp-type junction">DM&IR Signature Car</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Iron Range → Proctor → Ore Docks, empties return. <strong>Volume:</strong> 15-20 cars for a full ore train.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">DM&IR / DMIR ore jenny (24-pocket or extended ore car)</div>
+        <div class="car-detail">DM&IR maroon or CN. N scale options are limited — look for Walthers ore cars, Micro-Trains, or brass imports. These are the visual signature of the DM&IR; it's worth investing in quality models. Custom decals available from Microscale.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Tank Cars</div><div class="tp-type town">Propane, Chemicals, Fuel</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Cambridge (propane), Hinckley (propane, chemicals), Moose Lake (LP gas), Cloquet (mill chemicals). <strong>Volume:</strong> 8-12 cars.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">20K gallon general purpose tank car</div>
+        <div class="car-detail">GATX, UTLX, PROX reporting marks. Atlas, Micro-Trains, Intermountain. 4-6 for propane/fuel service.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">25K gallon chemical tank car</div>
+        <div class="car-detail">TILX, DOWX, CELX. For Cloquet/Sappi mill chemical deliveries. 3-4 cars.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot branch"></div><div class="tp-name">Gondolas</div><div class="tp-type branch">Wood Chips, Scrap, Steel</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Cloquet/Sappi (wood chips in — heaviest single commodity by car count), Northtown (through). <strong>Volume:</strong> 8-12 cars.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">65' mill gondola</div>
+        <div class="car-detail">BNSF, BN, various private. Intermountain, Atlas. For Sappi wood chip service. 6-8 with chip loads.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">52' standard gondola</div>
+        <div class="car-detail">Mixed roadnames. For general merchandise/scrap. 2-4 cars.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Boxcars</div><div class="tp-type town">Paper, Merchandise</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Cloquet/Sappi (paper out), Cambridge, Hinckley, Moose Lake, Northtown (through). <strong>Volume:</strong> 10-15 cars.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">60' high-cube boxcar</div>
+        <div class="car-detail">Various roadnames (BNSF, BN, FEC, CSX, NS — boxcars roam everywhere). Atlas, Micro-Trains, Intermountain. For Sappi paper and general merchandise. 6-8 cars.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">50' standard boxcar</div>
+        <div class="car-detail">Mixed roadnames. General merchandise, feed, supplies. 4-6 cars.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Centerbeam Flats</div><div class="tp-type town">Lumber, Plywood</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Cambridge (lumber yard), Hinckley (building supply). <strong>Volume:</strong> 4-6 cars.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">73' centerbeam flat</div>
+        <div class="car-detail">BNSF, TTX, Canfor. Atlas, Intermountain. With and without lumber loads. 4-6 cars.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot town"></div><div class="tp-name">Covered Hoppers — Chemicals, Clay, Cement</div><div class="tp-type town">Non-Grain Service</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Cloquet/Sappi (clay), Hinckley (chemicals, frac sand), Moose Lake (fertilizer). <strong>Volume:</strong> 6-8 cars.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">2-bay covered hopper (small cube)</div>
+        <div class="car-detail">BNSF, KCS, various private. For clay, cement, chemicals. Atlas, Intermountain. 4-6 cars.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">Open hopper — coal/ballast</div>
+        <div class="car-detail">BNSF, various. For coal unit trains (if modeled) and MOW ballast. Intermountain Bethlehem 3-bay. 6-10 for unit train, 2-3 for MOW.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot division"></div><div class="tp-name">Intermodal & Flatcars</div><div class="tp-type division">Port & Through Traffic</div></div>
+    <div class="tp-notes">
+      <strong>Locations:</strong> Northtown (through), Rices Point (port traffic/wind components). <strong>Volume:</strong> 6-10 pieces.
+    </div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">Gunderson MAXI-IV 5-unit well car</div>
+        <div class="car-detail">BNSF. Kato. With 53' containers (JB Hunt, Schneider, Swift, BNSF). 1-2 sets for intermodal trains.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">89' TTX flatcar</div>
+        <div class="car-detail">TTX yellow. For wind turbine components, oversize loads, machinery at Rices Point. 2-3 cars.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSENGER CARS -->
+  <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin:24px 0 16px; letter-spacing:1px; padding-top:24px; border-top:1px solid #2a3a5c;">PASSENGER CARS</h3>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot division"></div><div class="tp-name">Amtrak Consist</div><div class="tp-type division">Pick Your Era</div></div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">North Star (1978-1985): Amfleet I coaches + Amcafe</div>
+        <div class="car-detail">Amtrak Phase III. Kato Amfleet set. F40PH + baggage + 2-3 coaches + cafe. 4-5 car train.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">Northern Lights Express (proposed): Venture coaches</div>
+        <div class="car-detail">Siemens Charger + 3-4 Venture coaches. N scale availability TBD — Kato or Bachmann likely. Modern equipment.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CABOOSES -->
+  <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin:24px 0 16px; letter-spacing:1px; padding-top:24px; border-top:1px solid #2a3a5c;">CABOOSES</h3>
+
+  <div class="track-plan" style="margin-bottom:16px">
+    <div class="tp-header"><div class="tp-dot junction"></div><div class="tp-name">Caboose Fleet</div><div class="tp-type junction">Northtown & Proctor Tracks</div></div>
+    <div class="car-list" style="margin-top:12px;gap:8px">
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">BN/BNSF extended-vision caboose</div>
+        <div class="car-detail">BN green or BNSF Heritage. Micro-Trains or Atlas. For manifest and local service. 2-3 for Northtown caboose track.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">BNSF transfer caboose</div>
+        <div class="car-detail">BNSF orange. Short, modern — for yard transfer runs. 1 unit.</div>
+      </div>
+      <div class="car-tag" style="flex-direction:column;align-items:flex-start;padding:10px 14px">
+        <div style="color:#e0e0e0;font-weight:600">DM&IR bay window caboose</div>
+        <div class="car-detail">DM&IR maroon. Micro-Trains or custom decal on generic bay window body. For ore train service at Proctor. 1-2 units.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROSTER SUMMARY -->
+  <div style="margin-top:32px; padding-top:24px; border-top:1px solid #2a3a5c;">
+    <h3 style="font-size:14px; font-weight:700; color:#f0f0f0; margin-bottom:16px; letter-spacing:1px;">ROSTER SUMMARY</h3>
+    <div class="tp-notes">
+      <strong>Minimum starter roster to run full operations:</strong><br><br>
+      <strong style="color:#4895ef">Locomotives:</strong> ~15-18 total (6 BNSF road, 3 BNSF local, 1 switcher, 4 DM&IR, 2 foreign, 1 Amtrak)<br>
+      <strong style="color:#e9c46a">Freight cars:</strong> ~80-100 total (25-30 grain hoppers, 15-20 ore jennies, 10 tank cars, 10 gondolas, 12 boxcars, 5 centerbeams, 6 chemical/clay hoppers, 6-8 intermodal/flats)<br>
+      <strong style="color:#e63946">Passenger:</strong> 4-5 cars (one Amtrak consist)<br>
+      <strong style="color:#f4a261">Cabooses:</strong> 4-6 total (3 BNSF, 1-2 DM&IR)<br><br>
+      <strong>Total: ~105-130 pieces of rolling stock.</strong> This gives you enough variety for realistic blocking, multiple simultaneous trains, and car-card/waybill cycling without everything looking the same. Expand gradually — the used market (eBay, train shows, swap meets) is your friend for building fleet depth affordably.<br><br>
+      <strong>Recommended N scale manufacturers (quality tier):</strong> ScaleTrains Rivet Counter (premium), Intermountain (excellent value), Kato (bulletproof runners), Atlas Master (great detail), Micro-Trains (freight car standard), ExactRail (premium freight). <strong>Budget tier:</strong> Athearn, Atlas Trainman, Bachmann (solid starters, upgrade later).
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="max-width:1400px;width:100%;text-align:center;padding:20px 0 40px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#3a4a6c;line-height:1.8">
+  <div style="margin-bottom:8px;color:#5a6b8b">hinckleysub.com — BNSF Hinckley Subdivision & DM&IR Ore Operations</div>
+  <div>Prototype-based N Scale Layout Design — Version 0.1</div>
+  <div style="margin-top:8px">BNSF®, DM&IR®, and all railroad marks are property of their respective owners. This is an independent model railroad project.</div>
+</footer>
+
+</body>
+</html>
