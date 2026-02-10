@@ -16,14 +16,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hinckleysub.com/">
 <meta property="og:title" content="BNSF Hinckley Sub & DM&IR — N Scale Layout Design">
-<meta property="og:description" content="Prototype-based N scale modular layout: BNSF Hinckley Subdivision and DM&IR ore operations. Minneapolis to Duluth — 12 modules, ~90 turnouts, 6 operator jobs, continuous running. Track plans, operations guide, build plan, and rolling stock roster.">
+<meta property="og:description" content="Prototype-based N scale modular layout: BNSF Hinckley Subdivision and DM&IR ore operations. Minneapolis to Duluth — 12 modules, ~96 turnouts, 6 operator jobs, continuous running. Track plans, operations guide, build plan, and rolling stock roster.">
 <meta property="og:site_name" content="Hinckley Sub">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BNSF Hinckley Sub & DM&IR — N Scale Layout Design">
-<meta name="twitter:description" content="Prototype-based N scale modular layout: BNSF to DM&IR, Minneapolis to Duluth. 12 modules, ~90 turnouts, 6 operator jobs, continuous running.">
+<meta name="twitter:description" content="Prototype-based N scale modular layout: BNSF to DM&IR, Minneapolis to Duluth. 12 modules, ~96 turnouts, 6 operator jobs, continuous running.">
 
 <!-- Favicon (inline SVG — railroad-themed) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231a1a2e'/><text x='50' y='68' font-size='56' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%234895ef'>HS</text></svg>">
@@ -332,7 +332,7 @@
     <div class="cover-detail">
       <div class="cover-detail-label">Scale &amp; Track</div>
       <div class="cover-detail-value">N Scale (1:160)</div>
-      <div class="cover-detail-sub">Micro Engineering Code 55<br>#6 Turnouts (~90 total)</div>
+      <div class="cover-detail-sub">Micro Engineering Code 55<br>#6 Turnouts (~96 total)</div>
     </div>
     <div class="cover-detail">
       <div class="cover-detail-label">Prototype</div>
@@ -351,7 +351,7 @@
     <div class="cover-badge amtrak">AMTRAK PASSENGER</div>
     <div class="cover-badge nscale">JMRI / DCC CONTROL</div>
   </div>
-  <div class="cover-rev">Version 0.2 — February 2026</div>
+  <div class="cover-rev">Version 0.3 — February 2026</div>
 </div>
 
 <!-- ==================== VERSION HISTORY ==================== -->
@@ -363,6 +363,15 @@
   <div class="subtitle">Document revision log — what changed and when</div>
 
   <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+    <div class="train-card freight" style="padding:16px 20px">
+      <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px">
+        <div style="font-size:14px;font-weight:700;color:#4895ef;font-family:'JetBrains Mono',monospace;flex-shrink:0">v0.3</div>
+        <div style="font-size:11px;color:#5a6a8a;font-family:'JetBrains Mono',monospace">February 9, 2026</div>
+      </div>
+      <div style="font-size:11px;color:#8899bb;font-family:'JetBrains Mono',monospace;line-height:1.7">
+        <strong style="color:#f0f0f0">Northtown storage yard.</strong> Added 5-track storage yard inside the Northtown reverse loop module for off-session rolling stock parking. Storage ladder branches off Main 1 feed before loop entry so parked equipment never blocks continuous running. Two loco tracks (~10-12 locos), two freight car tracks (~24 cars), one passenger/caboose/MOW track. Module expanded from ~3×3 ft to ~3×4 ft. Turnout count updated from ~90 to ~96 (~10 in NTW loops, up from ~4). Build plan updated to reflect storage yard.
+      </div>
+    </div>
     <div class="train-card freight" style="padding:16px 20px">
       <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px">
         <div style="font-size:14px;font-weight:700;color:#4895ef;font-family:'JetBrains Mono',monospace;flex-shrink:0">v0.2</div>
@@ -378,7 +387,7 @@
         <div style="font-size:11px;color:#5a6a8a;font-family:'JetBrains Mono',monospace">February 9, 2026</div>
       </div>
       <div style="font-size:11px;color:#8899bb;font-family:'JetBrains Mono',monospace;line-height:1.7">
-        <strong style="color:#f0f0f0">Initial version.</strong> Complete layout design document including prototype history, track schematic with 12 modules, detailed track plans for all locations (Northtown, Cambridge, Hinckley, Moose Lake, Carlton, Cloquet, Proctor, Rices Point, Ore Docks, Iron Range Staging, and double reverse loops at both ends). Rolling stock and commodities reference, six-operator session guide with continuous running via BNSF circuit, module build plan with per-module construction sequence, and locomotive/freight car purchasing roster. ~90 turnouts, ~105-130 pieces of rolling stock recommended.
+        <strong style="color:#f0f0f0">Initial version.</strong> Complete layout design document including prototype history, track schematic with 12 modules, detailed track plans for all locations (Northtown, Cambridge, Hinckley, Moose Lake, Carlton, Cloquet, Proctor, Rices Point, Ore Docks, Iron Range Staging, and double reverse loops at both ends). Rolling stock and commodities reference, six-operator session guide with continuous running via BNSF circuit, module build plan with per-module construction sequence, and locomotive/freight car purchasing roster. ~96 turnouts, ~105-130 pieces of rolling stock recommended.
       </div>
     </div>
   </div>
@@ -470,7 +479,7 @@
           <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
           <div>
             <div style="font-size:12px;font-weight:700;color:#f0f0f0">DCC Address Map</div>
-            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Complete address allocation for ~90 turnouts (DS64 decoders), SE74 signal decoders, and BXP88 block detectors. Organized by module with address ranges, decoder locations, and LocoNet topology.</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Complete address allocation for ~96 turnouts (DS64 decoders), SE74 signal decoders, and BXP88 block detectors. Organized by module with address ranges, decoder locations, and LocoNet topology.</div>
           </div>
         </div>
       </div>
@@ -528,7 +537,7 @@
           <div style="font-size:16px;width:24px;text-align:center;flex-shrink:0">⬜</div>
           <div>
             <div style="font-size:12px;font-weight:700;color:#f0f0f0">Bill of Materials</div>
-            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Complete parts list with quantities and rough pricing: Cobalt iP motors (~90), DS64 decoders (~23), BXP88 detectors, SE74 signal decoders, AR1 auto-reversers (4), signal heads, LocoNet cables, DCC bus wire, cork roadbed, flex track, turnouts, and benchwork lumber. Organized by module for phased purchasing.</div>
+            <div style="font-size:10px;color:#5a6a8a;font-family:'JetBrains Mono',monospace;margin-top:2px">Complete parts list with quantities and rough pricing: Cobalt iP motors (~96), DS64 decoders (~24), BXP88 detectors, SE74 signal decoders, AR1 auto-reversers (4), signal heads, LocoNet cables, DCC bus wire, cork roadbed, flex track, turnouts, and benchwork lumber. Organized by module for phased purchasing.</div>
           </div>
         </div>
       </div>
@@ -708,7 +717,7 @@
     <h1>BNSF HINCKLEY SUB / DM&IR LAYOUT SCHEMATIC</h1>
     <div class="page-badge">PAGE 1 — TRACK SCHEMATIC</div>
   </div>
-  <div class="subtitle">Prototype-based N Scale Modular Layout — v0.2</div>
+  <div class="subtitle">Prototype-based N Scale Modular Layout — v0.3</div>
   <div class="legend-row">
     <div class="legend-item"><div class="legend-dot division"></div> Division Point</div>
     <div class="legend-item"><div class="legend-dot junction"></div> Junction Yard</div>
@@ -951,49 +960,82 @@
 
   <!-- NORTHTOWN REVERSE LOOPS (HIDDEN STAGING) -->
   <div class="track-plan">
-    <div class="tp-header"><div class="tp-dot staging"></div><div class="tp-name">Northtown Reverse Loops</div><div class="tp-type staging">Hidden Staging — ~3×3 ft module</div></div>
-    <div class="tp-subtitle">Double reverse loop behind/beneath Northtown. Turns southbound departures into northbound arrivals for continuous running.</div>
-    <svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+    <div class="tp-header"><div class="tp-dot staging"></div><div class="tp-name">Northtown Reverse Loops</div><div class="tp-type staging">Hidden Staging — ~3×4 ft module</div></div>
+    <div class="tp-subtitle">Double reverse loop + storage yard behind/beneath Northtown. Continuous running loops plus off-session rolling stock storage.</div>
+    <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
       <text x="600" y="16" text-anchor="middle" fill="#3a4a6c" font-size="10" font-family="JetBrains Mono">↑ To/From Northtown Yard (west throat)</text>
       <!-- Feed tracks from Northtown -->
       <line x1="500" y1="30" x2="500" y2="60" stroke="#4895ef" stroke-width="3"/>
       <line x1="700" y1="30" x2="700" y2="60" stroke="#4895ef" stroke-width="3"/>
       <text x="500" y="55" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">Main 1</text>
       <text x="700" y="55" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">Bypass</text>
-      <!-- Loop A (outer) -->
-      <path d="M 500,60 L 500,80 Q 500,100 480,100 L 180,100 Q 100,100 100,160 Q 100,220 180,220 L 1020,220 Q 1100,220 1100,160 Q 1100,100 1020,100 L 720,100 Q 700,100 700,80 L 700,60" stroke="#4895ef" stroke-width="2.5" fill="none"/>
+
+      <!-- Storage ladder branching off Main 1 feed BEFORE loop entry -->
+      <line x1="500" y1="60" x2="500" y2="75" stroke="#4895ef" stroke-width="2.5"/>
+      <!-- Ladder turnout -->
+      <line x1="500" y1="75" x2="540" y2="100" stroke="#8899bb" stroke-width="1.5"/>
+      <!-- Storage Lead -->
+      <line x1="540" y1="100" x2="540" y2="115" stroke="#8899bb" stroke-width="1.5"/>
+      <!-- Storage Track 1 -->
+      <line x1="540" y1="115" x2="560" y2="130" stroke="#8899bb" stroke-width="1.2"/>
+      <line x1="560" y1="130" x2="1050" y2="130" stroke="#8899bb" stroke-width="1.5"/>
+      <circle cx="1050" cy="130" r="2.5" fill="#e63946"/>
+      <text x="810" y="126" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">Storage 1 — Locomotives (~5-6 locos)</text>
+      <!-- Storage Track 2 -->
+      <line x1="560" y1="130" x2="580" y2="148" stroke="#8899bb" stroke-width="1.2"/>
+      <line x1="580" y1="148" x2="1050" y2="148" stroke="#8899bb" stroke-width="1.5"/>
+      <circle cx="1050" cy="148" r="2.5" fill="#e63946"/>
+      <text x="810" y="144" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">Storage 2 — Locomotives (~5-6 locos)</text>
+      <!-- Storage Track 3 -->
+      <line x1="580" y1="148" x2="600" y2="166" stroke="#8899bb" stroke-width="1.2"/>
+      <line x1="600" y1="166" x2="1050" y2="166" stroke="#8899bb" stroke-width="1.5"/>
+      <circle cx="1050" cy="166" r="2.5" fill="#e63946"/>
+      <text x="810" y="162" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">Storage 3 — Freight cars (~12 cars)</text>
+      <!-- Storage Track 4 -->
+      <line x1="600" y1="166" x2="620" y2="184" stroke="#8899bb" stroke-width="1.2"/>
+      <line x1="620" y1="184" x2="1050" y2="184" stroke="#8899bb" stroke-width="1.5"/>
+      <circle cx="1050" cy="184" r="2.5" fill="#e63946"/>
+      <text x="810" y="180" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">Storage 4 — Freight cars (~12 cars)</text>
+      <!-- Storage Track 5 -->
+      <line x1="620" y1="184" x2="640" y2="202" stroke="#8899bb" stroke-width="1.2"/>
+      <line x1="640" y1="202" x2="1050" y2="202" stroke="#8899bb" stroke-width="1.5"/>
+      <circle cx="1050" cy="202" r="2.5" fill="#e63946"/>
+      <text x="810" y="198" text-anchor="middle" fill="#5a6a8a" font-size="6.5" font-family="JetBrains Mono">Storage 5 — Passenger / cabooses / MOW</text>
+      <!-- Bumper indicators label -->
+      <text x="1080" y="168" fill="#e63946" font-size="6" font-family="JetBrains Mono">● = bumper</text>
+      <!-- Storage yard box -->
+      <rect x="530" y="108" width="560" height="110" rx="6" fill="none" stroke="#3a4a6c" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="600" y="222" fill="#7a8bb5" font-size="9" font-weight="700" font-family="JetBrains Mono">STORAGE YARD</text>
+      <text x="730" y="222" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">off-session parking — locos, cars, passenger, MOW (unpowered stubs)</text>
+
+      <!-- Loop A (outer) — pushed down to clear storage tracks -->
+      <path d="M 500,75 L 500,90 Q 500,108 480,108 L 180,108 Q 100,108 100,180 Q 100,255 180,255 L 480,255 Q 500,255 500,240 L 500,240 Q 500,108 480,108" stroke="none" fill="none"/>
+      <path d="M 500,75 L 500,90 Q 500,245 480,245 L 180,245 Q 100,245 100,285 Q 100,325 180,325 L 1020,325 Q 1100,325 1100,285 Q 1100,245 1020,245 L 720,245 Q 700,245 700,90 L 700,60" stroke="#4895ef" stroke-width="2.5" fill="none"/>
       <!-- Auto-reverse indicator A -->
-      <rect x="475" y="68" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
-      <text x="500" y="80" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
+      <rect x="475" y="82" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="500" y="94" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
       <!-- Loop B (inner) -->
-      <path d="M 500,60 L 500,80 Q 500,120 470,120 L 220,120 Q 160,120 160,170 Q 160,200 220,200 L 980,200 Q 1040,200 1040,170 Q 1040,120 980,120 L 730,120 Q 700,120 700,80 L 700,60" stroke="#70a8ef" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+      <path d="M 500,75 L 500,90 Q 500,260 470,260 L 220,260 Q 160,260 160,295 Q 160,310 220,310 L 980,310 Q 1040,310 1040,295 Q 1040,260 980,260 L 730,260 Q 700,260 700,90 L 700,60" stroke="#70a8ef" stroke-width="2" fill="none" stroke-opacity="0.7"/>
       <!-- Auto-reverse indicator B -->
-      <rect x="675" y="68" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
-      <text x="700" y="80" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
+      <rect x="675" y="82" width="50" height="16" rx="3" fill="#2a3a5c" stroke="#f4a261" stroke-width="1"/>
+      <text x="700" y="94" text-anchor="middle" fill="#f4a261" font-size="6" font-family="JetBrains Mono">AR1</text>
       <!-- Train hold positions -->
-      <rect x="350" y="210" width="120" height="18" rx="3" fill="none" stroke="#4895ef" stroke-width="1" stroke-dasharray="3,2"/>
-      <text x="410" y="222" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">🚂 Train Hold A</text>
-      <rect x="700" y="190" width="120" height="18" rx="3" fill="none" stroke="#70a8ef" stroke-width="1" stroke-dasharray="3,2"/>
-      <text x="760" y="202" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">🚂 Train Hold B</text>
-      <!-- Labels -->
-      <text x="600" y="160" text-anchor="middle" fill="#7a8bb5" font-size="11" font-weight="700" font-family="JetBrains Mono">HIDDEN STAGING</text>
-      <text x="600" y="175" text-anchor="middle" fill="#5a6a8a" font-size="8" font-family="JetBrains Mono">Double reverse loop — 2 trains in pipeline</text>
+      <rect x="350" y="315" width="120" height="18" rx="3" fill="none" stroke="#4895ef" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="410" y="327" text-anchor="middle" fill="#4895ef" font-size="7" font-family="JetBrains Mono">🚂 Train Hold A</text>
+      <rect x="700" y="300" width="120" height="18" rx="3" fill="none" stroke="#70a8ef" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="760" y="312" text-anchor="middle" fill="#70a8ef" font-size="7" font-family="JetBrains Mono">🚂 Train Hold B</text>
       <!-- BXP88 block detection markers -->
-      <circle cx="300" cy="220" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
-      <circle cx="520" cy="220" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
-      <circle cx="850" cy="200" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
-      <circle cx="600" cy="100" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
-      <text x="600" y="250" text-anchor="middle" fill="#f4a261" font-size="7" font-family="JetBrains Mono">● = BXP88 detection blocks — JMRI automates train sequencing</text>
+      <circle cx="300" cy="325" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="520" cy="325" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="850" cy="310" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <circle cx="600" cy="245" r="4" fill="#f4a261" stroke="none" opacity="0.6"/>
+      <text x="600" y="350" text-anchor="middle" fill="#f4a261" font-size="7" font-family="JetBrains Mono">● = BXP88 detection blocks — JMRI automates train sequencing</text>
       <!-- Direction arrows -->
-      <text x="260" y="95" fill="#4895ef" font-size="7" font-family="JetBrains Mono">SB depart →</text>
-      <text x="800" y="95" fill="#4895ef" font-size="7" font-family="JetBrains Mono">→ NB arrive</text>
-      <text x="350" y="240" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Loop A: ~5 ft track (holds full manifest)</text>
-      <text x="700" y="240" fill="#5a6a8a" font-size="7" font-family="JetBrains Mono">Loop B: ~4 ft track (holds full manifest)</text>
-      <!-- Module size -->
-      <text x="50" y="310" fill="#5a6a8a" font-size="9" font-family="JetBrains Mono">▸ Module: ~3×3 ft (hidden beneath/behind Northtown) &nbsp; ▸ 2 AR1 auto-reversers &nbsp; ▸ BXP88 detection for JMRI sequencing &nbsp; ▸ ~4 turnouts</text>
+      <text x="260" y="240" fill="#4895ef" font-size="7" font-family="JetBrains Mono">SB depart →</text>
+      <text x="800" y="240" fill="#4895ef" font-size="7" font-family="JetBrains Mono">→ NB arrive</text>
     </svg>
     <div class="tp-notes">
-      <strong>Purpose:</strong> Converts the layout's south end from a dead-end stub into continuous running. A southbound departure from Northtown enters a loop and emerges as a new northbound arrival — different train symbol, fresh work for the yardmaster. <strong>Double loops:</strong> Two trains can stage simultaneously so the dispatcher always has traffic in the pipeline. While one train is being received and classified at Northtown, the next is already circling in staging. <strong>Detection:</strong> BXP88 blocks in each loop let JMRI track occupancy and automate train sequencing — the software can signal when a loop is clear and ready for the next departure. <strong>Wiring:</strong> Each loop feed requires a Digitrax AR1 auto-reverser to handle the polarity reversal. Loops connect to Northtown's west throat via the mainline and bypass track. <strong>Construction:</strong> This module is entirely hidden — no scenery needed. Can be built as a shelf below the Northtown benchwork or a separate free-standing unit behind it.
+      <strong>Purpose:</strong> Converts the layout's south end from a dead-end stub into continuous running, plus provides on-layout storage for rolling stock not in the current session. <strong>Reverse loops:</strong> Two trains can stage simultaneously so the dispatcher always has traffic in the pipeline. A southbound departure enters a loop and emerges as a new northbound arrival — different train symbol, fresh work for the yardmaster. <strong>Storage yard:</strong> Five stub-end tracks branch off the main feed via a ladder BEFORE the loop entry points — parked equipment never blocks the continuous running circuit. Two tracks sized for locomotives (~5-6 each, total ~10-12 locos), two for freight cars (~12 each, total ~24 cars), one for passenger, cabooses, and MOW equipment. This keeps your full ~105-130 piece roster on the layout at all times — swap cars between storage and the active layout without handling delicate N scale equipment by hand. <strong>Detection:</strong> BXP88 blocks in each loop let JMRI track occupancy and automate train sequencing. Storage tracks do not need detection. <strong>Wiring:</strong> Each loop feed requires a Digitrax AR1 auto-reverser. Storage tracks are unpowered stubs (no DCC needed — just parked). <strong>Construction:</strong> Entirely hidden — no scenery needed. Module expanded to ~3×4 ft to accommodate storage tracks.
     </div>
   </div>
 
@@ -1508,7 +1550,7 @@
   </div>
 
   <div class="tp-notes" style="margin-top:20px">
-    <strong>N Scale module sizing notes:</strong> All dimensions assume Micro Engineering Code 55 track with #6 turnouts (~5.5" per turnout). A 40' freight car ≈ 3" in N scale. Industry spurs sized for 2-4 car spots (6-12"). Sidings compressed from prototype — Cambridge's 8,800' siding becomes roughly 55" (about 4.5 ft) which fits a 4-ft module nicely. Mainline minimum radius should be 15" (19" preferred) for reliable long-train operation. <strong>All turnout counts:</strong> NTW Reverse Loops ~4, Northtown ~22, Cambridge 5, Hinckley 8, Moose Lake 4, Carlton 6, Cloquet 6, Proctor ~20, Rices Point ~8, RP Reverse Loops ~4, Ore Docks 3. <strong>Total: ~90 turnouts across the full layout.</strong>
+    <strong>N Scale module sizing notes:</strong> All dimensions assume Micro Engineering Code 55 track with #6 turnouts (~5.5" per turnout). A 40' freight car ≈ 3" in N scale. Industry spurs sized for 2-4 car spots (6-12"). Sidings compressed from prototype — Cambridge's 8,800' siding becomes roughly 55" (about 4.5 ft) which fits a 4-ft module nicely. Mainline minimum radius should be 15" (19" preferred) for reliable long-train operation. <strong>All turnout counts:</strong> NTW Reverse Loops ~10, Northtown ~22, Cambridge 5, Hinckley 8, Moose Lake 4, Carlton 6, Cloquet 6, Proctor ~20, Rices Point ~8, RP Reverse Loops ~4, Ore Docks 3. <strong>Total: ~96 turnouts across the full layout.</strong>
   </div>
 </div>
 
@@ -1700,10 +1742,10 @@
         <div class="train-name">Northtown Reverse Loops — Hidden Staging</div>
         <div class="train-badge">HIDDEN MODULE</div>
       </div>
-      <div class="train-subtitle">~3×3 ft &nbsp;|&nbsp; ~4 turnouts &nbsp;|&nbsp; Double reverse loop + AR1 auto-reversers + BXP88 detection</div>
+      <div class="train-subtitle">~3×4 ft &nbsp;|&nbsp; ~10 turnouts &nbsp;|&nbsp; Double reverse loop + 5-track storage yard + AR1 auto-reversers + BXP88 detection</div>
       <div class="consist-note">
-        <strong>Why seventh:</strong> Build this right after Northtown while the wiring is fresh. No scenery needed — just reliable trackwork, auto-reversing, and detection. This is your first experience with AR1 wiring and BXP88 block detection, both of which you'll need again for the Rices Point loops.<br><br>
-        <strong>Skills learned:</strong> AR1 auto-reverser installation, BXP88 block detection wiring, JMRI integration for loop automation, hidden trackwork (no scenery = focus on reliability)<br><br>
+        <strong>Why seventh:</strong> Build this right after Northtown while the wiring is fresh. No scenery needed — just reliable trackwork, auto-reversing, and detection. This is your first experience with AR1 wiring and BXP88 block detection, both of which you'll need again for the Rices Point loops. The 5-track storage yard fills the center of the module — park your entire surplus roster here so nothing gets handled between sessions.<br><br>
+        <strong>Skills learned:</strong> AR1 auto-reverser installation, BXP88 block detection wiring, JMRI integration for loop automation, storage ladder geometry, hidden trackwork (no scenery = focus on reliability)<br><br>
         <strong>Milestone:</strong> Continuous running on the south end! Trains depart Northtown, enter the loops, and re-emerge as new arrivals.
       </div>
     </div>
@@ -1775,7 +1817,7 @@
       <div class="train-subtitle">Below/behind Proctor &nbsp;|&nbsp; 3 staging tracks &nbsp;|&nbsp; Feeds DM&IR ore trains</div>
       <div class="consist-note">
         <strong>Why last:</strong> Simple hidden staging — three parallel tracks, no turnout complexity. Can be a shelf below the Proctor module. Build last because DM&IR operations work fine using the Proctor yard tracks as temporary staging until this module is ready.<br><br>
-        <strong>Milestone: LAYOUT COMPLETE (trackwork phase).</strong> All 12 modules built, all ~90 turnouts installed, all track connected. End-to-end testing complete. Ready for Phase 2.
+        <strong>Milestone: LAYOUT COMPLETE (trackwork phase).</strong> All 12 modules built, all ~96 turnouts installed, all track connected. End-to-end testing complete. Ready for Phase 2.
       </div>
     </div>
 
@@ -1843,7 +1885,7 @@
           <div>
             <div style="font-size:13px;font-weight:700;color:#f0f0f0">Step 5 — Turnout Motors & Control</div>
             <div style="font-size:10.5px;color:#6a7a9a;font-family:'JetBrains Mono',monospace;margin-top:4px;line-height:1.6">
-              Mount Cobalt iP Analog motors under each turnout. Wire throw rod, frog polarity switch, and position feedback leads. Connect to DS64 stationary decoders (4 turnouts per decoder — ~23 decoders total for 90 turnouts). Install local pushbutton control at each turnout location. Test every turnout for reliable throw in both directions. Set DCC addresses in sequence per module.
+              Mount Cobalt iP Analog motors under each turnout. Wire throw rod, frog polarity switch, and position feedback leads. Connect to DS64 stationary decoders (4 turnouts per decoder — ~24 decoders total for 90 turnouts). Install local pushbutton control at each turnout location. Test every turnout for reliable throw in both directions. Set DCC addresses in sequence per module.
             </div>
           </div>
         </div>
@@ -2236,7 +2278,7 @@
 <!-- ==================== FOOTER ==================== -->
 <footer style="max-width:1400px;width:100%;text-align:center;padding:20px 0 40px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#3a4a6c;line-height:1.8">
   <div style="margin-bottom:8px;color:#5a6b8b">hinckleysub.com — BNSF Hinckley Subdivision & DM&IR Ore Operations</div>
-  <div>Prototype-based N Scale Layout Design — Version 0.2</div>
+  <div>Prototype-based N Scale Layout Design — Version 0.3</div>
   <div style="margin-top:8px">BNSF®, DM&IR®, and all railroad marks are property of their respective owners. This is an independent model railroad project.</div>
 </footer>
 
